@@ -1,0 +1,116 @@
+{
+  "coffees": [
+    {
+      "id": 0,
+      "name": "VANILLA ÉCLAIR",
+      "description": "VANILLA ECLAIR FLAVOURED COFFEE",
+      "image": "images/cc_img/vanilla_eclair.png",
+      "photo": "images/c_photos/vanilla_eclair.png",
+      "price": 0.55,
+      "stats": [
+        { "name": "BITTERNESS", "points": 1 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 2 },
+        { "name": "BODY", "points": 2 }
+      ],
+
+      "intensity": null
+    },
+    {
+      "id": 1,
+      "name": "COCOA TRUFFLE",
+      "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
+      "image": "images/cc_img/cocoa_truffle.png",
+      "photo": "images/c_photos/cocoa_truffle.png",
+      "price": 0.44,
+
+      "stats": [
+        { "name": "BITTERNESS", "points": 1 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 2 },
+        { "name": "BODY", "points": 2 }
+      ],
+      "intensity": null
+    },
+    {
+      "id": 2,
+      "name": "BUENOS AIRES LUNGO",
+      "description": "DISTINCT DELIGHT SWEET & CEREAL",
+      "image": "images/cc_img/buenos_aires_lungo.png",
+      "photo": "images/c_photos/buenos_aires_lungo.png",
+      "price": 0.49,
+
+      "stats": [
+        { "name": "BITTERNESS", "points": 1 },
+        { "name": "ACIDITY", "points": 2 },
+        { "name": "ROASTINESS", "points": 1 },
+        { "name": "BODY", "points": 1 }
+      ],
+      "intensity": 4
+    },
+    {
+      "id": 3,
+      "name": "COLOMBIA",
+      "description": "FRUITY AND VIBRANT",
+      "image": "images/cc_img/colombia.png",
+      "photo": "images/c_photos/colombia.png",
+      "price": 0.51,
+      "stats": [
+        { "name": "BITTERNESS", "points": 3 },
+        { "name": "ACIDITY", "points": 4 },
+        { "name": "ROASTINESS", "points": 3 },
+        { "name": "BODY", "points": 3 }
+      ],
+      "intensity": 6
+    },
+    {
+      "id": 4,
+      "name": "ARPEGGIO",
+      "description": "INTENSE AND CREAMY COFFEE",
+      "image": "images/cc_img/arpeggio.png",
+      "photo": null,
+      "price": 0.44,
+      "stats": [
+        { "name": "BITTERNESS", "points": 4 },
+        { "name": "ACIDITY", "points": 2 },
+        { "name": "ROASTINESS", "points": 4 },
+        { "name": "BODY", "points": 4 }
+      ],
+      "intensity": 9
+    },
+    {
+      "id": 5,
+      "name": "ISTANBUL ESPRESSO",
+      "description": "ROASTED WITH A FRUITY NOTE AND A HINT OF ALMOND",
+      "image": "images/cc_img/istanbul_espresso.png",
+      "photo": "images/c_photos/istanbul_espresso.png",
+      "price": 0.46,
+      "stats": [
+        { "name": "BITTERNESS", "points": 1 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 2 },
+        { "name": "BODY", "points": 2 },
+        { "name": "BROWN NOTES", "points": 2 },
+        { "name": "CEREALS ROASTED/FRUITY", "points": 4 },
+        { "name": "FRUITY/FLOWERY", "points": 3 }
+      ],
+      "intensity": 8
+    },
+    {
+      "id": 6,
+      "name": "Napoli",
+      "description": "EXCEPTIONALLY DARK AND CREAMY",
+      "image": "images/cc_img/napoli.png",
+      "photo": null,
+      "price": 0.44,
+
+      "stats": [
+        { "name": "BITTERNESS", "points": 5 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 5 },
+        { "name": "BODY", "points": 5 }
+      ],
+      "intensity": 13
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #595959 !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #333;
+  z-index: 1000;
+}
+
+#nothing {
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1000;
+}
+
+.sidebar-logo {
+  text-align: center;
+  padding: 30px 0;
+  padding-top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.sidebar-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #444;
+}
+
+.sidebar-logout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.sidebar-logout a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidebar-logout a:hover {
+  color: #fff;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.coffee-img {
+  width: 240px !important;
+  height: 240px;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+}
