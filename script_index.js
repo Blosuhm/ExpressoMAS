@@ -26,6 +26,7 @@ $(document).ready(function () {
   // Create a new instance of the ViewModel and apply bindings
   ko.applyBindings(new vm());
 
+  // Open and close sidebar
   $("#openNav").click(openNav);
   function openNav() {
     $("#sidebar").removeClass("d-none");
