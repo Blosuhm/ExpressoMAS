@@ -96,3 +96,10 @@ body {
   width: 100%;
   height: auto;
 }
+
+.banner {
+  background-color: hsl(325, 87%, 76%);
+  height: 50rem;
+  color: #fff;
+  text-align: center;
+}
