@@ -25,4 +25,17 @@ $(document).ready(function () {
   }
   // Create a new instance of the ViewModel and apply bindings
   ko.applyBindings(new vm());
+
+  $("#openNav").click(openNav);
+  function openNav() {
+    $("#sidebar").removeClass("d-none");
+    $("#nothing").removeClass("d-none");
+    $("html").css("overflow-y", "hidden");
+  }
+
+  $("#nothing").click(function () {
+    $("#sidebar").addClass("d-none");
+    $("#nothing").addClass("d-none");
+    $("html").css("overflow-y", "scroll");
+  });
 });

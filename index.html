@@ -174,20 +174,6 @@
       </div>
     </main>
 
-    <script>
-      $("#openNav").click(openNav);
-      function openNav() {
-        $("#sidebar").removeClass("d-none");
-        $("#nothing").removeClass("d-none");
-        $("html").css("overflow-y", "hidden");
-      }
-
-      $("#nothing").click(function () {
-        $("#sidebar").addClass("d-none");
-        $("#nothing").addClass("d-none");
-        $("html").css("overflow-y", "scroll");
-      });
-    </script>
     <script src="libs/popper.min.js"></script>
     <script src="libs/knockout-3.5.1.js"></script>
     <script src="libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
