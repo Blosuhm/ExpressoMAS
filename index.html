@@ -7,6 +7,10 @@
     <link rel="icon" href="images/logo/favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
     <link
+      href="https://fonts.cdnfonts.com/css/avenir-next-lt-pro"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="libs/bootstrap-5.2.2-dist/css/bootstrap.min.css"
     />
@@ -16,6 +20,9 @@
     />
     <script src="libs/jquery/jquery-3.6.1.js"></script>
     <title>Expresso!</title>
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/avenir-next-lt-pro");
+    </style>
   </head>
   <body>
     <div id="nothing" class="d-none"></div>
@@ -148,7 +155,7 @@
                       <!-- /ko -->
                       <!-- ko ifnot: photo -->
                       <img
-                        class="modal-image w-50"
+                        class="modal-image w-50 justify-content-center"
                         data-bind="attr: {src: image}"
                         alt="Your image alt text goes here"
                       />
