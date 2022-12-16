@@ -9,7 +9,7 @@ $(document).ready(function () {
       // Save the id to local storage
       localStorage.setItem("data", id);
       console.log(localStorage.getItem("data"));
-      window.location = "pay.html";
+      window.location = "pay/pay.html";
     };
     $.ajax({
       url: "coffee_data.json",

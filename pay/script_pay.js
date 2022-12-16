@@ -7,7 +7,7 @@ $(document).ready(function () {
     console.log(localStorage.getItem("data"));
     self.Coffee = ko.observableArray();
     $.ajax({
-      url: "coffee_data.json",
+      url: "../coffee_data.json",
       dataType: "json",
       type: "GET",
       success: function (data) {
