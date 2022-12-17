@@ -27,7 +27,7 @@
   <body>
     <div id="nothing" class="d-none"></div>
 
-    <div id="sidebar" class="sidebar d-none ms-3 my-3">
+    <div id="sidebar" class="sidebar d-none ms-3 my-3 shadow-sm">
       <div class="sidebar-logo image-logo">
         <a href="index.html"
           ><img
@@ -45,23 +45,23 @@
     <div class="position-fixed w-100" style="box-sizing: content-box">
       <div class="position-relative w-100" style="box-sizing: content-box">
         <nav
-          class="d-flex justify-content-around align-items-center px-0 position-absolute top-0 start-0 end-0 me-auto"
-          style="width: 100%"
+          class="d-flex justify-content-around align-items-center px-0 position-absolute top-0 start-0 end-0 mx-auto w-100"
+          style="max-width: 1920px"
         >
           <button
             id="openNav"
             type="button"
-            class="bg-transparent border-0 ms-3"
+            class="bg-transparent text-dark border-0 ms-3"
             style="font-size: 2rem"
           >
             <i class="fa fa-bars" aria-hidden="true"></i>
           </button>
 
           <div class="ms-auto me-3">
-            <button type="button" class="btn btn-light rounded-1">
+            <button type="button" class="btn rounded-1 shadow-sm">
               Log in
             </button>
-            <button type="button" class="btn btn-primary rounded-1">
+            <button type="button" class="btn btn-dark rounded-1 shadow-sm">
               Sign up
             </button>
           </div>
@@ -84,7 +84,10 @@
           <!-- Cards will go here -->
 
           <div class="col d-flex justify-content-center my-2">
-            <div class="card align-items-center" style="width: 18rem">
+            <div
+              class="card align-items-center shadow border-0"
+              style="width: 18rem"
+            >
               <img
                 data-bind="attr: {src: image }"
                 class="card-img-top coffee-img"
