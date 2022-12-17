@@ -29,14 +29,14 @@ $(document).ready(function () {
   // Open and close sidebar
   $("#openNav").click(openNav);
   function openNav() {
-    $("#sidebar").removeClass("d-none");
-    $("#nothing").removeClass("d-none");
+    $("#sidebar nav").addClass("sidebar-active");
+    $("#sidebar").addClass("sidebar-active");
     $("html").css("overflow-y", "hidden");
   }
 
-  $("#nothing").click(function () {
-    $("#sidebar").addClass("d-none");
-    $("#nothing").addClass("d-none");
+  $("#sidebar:not(nav)").click(function () {
+    $("#sidebar nav").removeClass("sidebar-active");
+    $("#sidebar").removeClass("sidebar-active");
     $("html").css("overflow-y", "scroll");
   });
 });
