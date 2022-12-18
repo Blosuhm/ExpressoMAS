@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  top: 0px;
   min-height: 100vh;
 }
 #sidebar {
@@ -149,4 +150,28 @@ body {
   height: 50rem;
   color: #fff;
   text-align: center;
+}
+
+footer {
+  background-color: hsl(0, 0%, 0%);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  height: 30vh;
+}
+
+#navbar {
+  height: 5rem;
+  background: transparent;
+  transition: background 200ms ease 0s;
+}
+
+#navbar.active {
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
+  transition: background 200ms ease 0s;
+}
+
+.my-btn {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px, rgba(0, 0, 0, 0.04) 0px 4px 4px;
 }

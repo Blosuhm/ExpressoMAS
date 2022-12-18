@@ -26,6 +26,14 @@ $(document).ready(function () {
   // Create a new instance of the ViewModel and apply bindings
   ko.applyBindings(new vm());
 
+  $(window).scroll(function () {
+    if ($(this).scrollTop() != 0) {
+      $("#navbar").addClass("active");
+    } else {
+      $("#navbar").removeClass("active");
+    }
+  });
+
   // Open and close sidebar
   $("#openNav").click(openNav);
   function openNav() {

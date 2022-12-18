@@ -45,6 +45,7 @@
     <div class="position-fixed w-100" style="box-sizing: content-box">
       <div class="position-relative w-100" style="box-sizing: content-box">
         <nav
+          id="navbar"
           class="d-flex justify-content-around align-items-center px-0 position-absolute top-0 start-0 end-0 mx-auto w-100"
           style="max-width: 1920px"
           aria-label="navigation"
@@ -59,17 +60,24 @@
           </button>
 
           <div class="ms-auto me-3">
-            <button type="button" class="btn rounded-1 shadow-sm">
+            <button
+              type="button"
+              class="btn rounded-1 my-btn"
+              style="background: rgb(255, 255, 255)"
+            >
               Log in
             </button>
-            <button type="button" class="btn btn-dark rounded-1 shadow-sm">
+            <button type="button" class="btn btn-dark rounded-1 my-btn">
               Sign up
             </button>
           </div>
         </nav>
       </div>
     </div>
-    <div class="banner d-none" style="box-sizing: content-box">
+    <div
+      class="banner d-flex align-items-center"
+      style="box-sizing: content-box"
+    >
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
         dolorum iure non aut ducimus, dolor aspernatur suscipit deserunt
@@ -201,6 +209,8 @@
         </div>
       </div>
     </main>
+
+    <footer></footer>
 
     <script src="libs/popper.min.js"></script>
     <script src="libs/knockout-3.5.1.js"></script>
