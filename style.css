@@ -79,7 +79,9 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px, rgba(0, 0, 0, 0.04) 0px 4px 4px;
 }
 
-.arrow-hidden {
+input.arrow-hidden::-webkit-outer-spin-button,
+input.arrow-hidden::-webkit-inner-spin-button,
+input.arrow-hidden[type="number"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   margin: 0;
