@@ -1,7 +1,6 @@
 {
   "coffees": [
     {
-      "id": 0,
       "name": "VANILLA ÉCLAIR",
       "description": "VANILLA ECLAIR FLAVOURED COFFEE",
       "image": "images/cc_img/vanilla_eclair.png",
@@ -17,7 +16,6 @@
       "intensity": null
     },
     {
-      "id": 1,
       "name": "COCOA TRUFFLE",
       "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
       "image": "images/cc_img/cocoa_truffle.png",
@@ -33,7 +31,6 @@
       "intensity": null
     },
     {
-      "id": 2,
       "name": "BUENOS AIRES LUNGO",
       "description": "DISTINCT DELIGHT SWEET & CEREAL",
       "image": "images/cc_img/buenos_aires_lungo.png",
@@ -49,7 +46,6 @@
       "intensity": 4
     },
     {
-      "id": 3,
       "name": "COLOMBIA",
       "description": "FRUITY AND VIBRANT",
       "image": "images/cc_img/colombia.png",
@@ -64,7 +60,6 @@
       "intensity": 6
     },
     {
-      "id": 4,
       "name": "ARPEGGIO",
       "description": "INTENSE AND CREAMY COFFEE",
       "image": "images/cc_img/arpeggio.png",
@@ -79,7 +74,6 @@
       "intensity": 9
     },
     {
-      "id": 5,
       "name": "ISTANBUL ESPRESSO",
       "description": "ROASTED WITH A FRUITY NOTE AND A HINT OF ALMOND",
       "image": "images/cc_img/istanbul_espresso.png",
@@ -97,7 +91,6 @@
       "intensity": 8
     },
     {
-      "id": 6,
       "name": "NAPOLI",
       "description": "EXCEPTIONALLY DARK AND CREAMY",
       "image": "images/cc_img/napoli.png",
