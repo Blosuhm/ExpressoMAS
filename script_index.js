@@ -4,8 +4,7 @@ $(document).ready(function () {
     coffees: ko.observableArray([]),
     saveData: function (id) {
       // Save the id to local storage
-      localStorage.setItem("data", id);
-      console.log(localStorage.getItem("data"));
+      localStorage.setItem("purchaseItem", id);
       window.location = "pay/pay.html";
     },
   };
