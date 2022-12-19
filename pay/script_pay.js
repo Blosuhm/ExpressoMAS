@@ -3,24 +3,36 @@ $(document).ready(function () {
   const minQuantity = 1;
 
   // Define the ViewModel
-  let vm = {
-    coffee: ko.observableArray([]),
-  };
 
-  $.ajax({
-    url: "../coffee_data.json",
-    dataType: "json",
-    type: "GET",
-    success: function (data) {
-      // Store the data in the view model
-      //vm.coffee(data.coffees[localStorage.getItem("purchaseItem")]);
-      //console.log(data.coffees[localStorage.getItem("purchaseItem")]);
-      vm.coffee(data.coffees);
-    },
-  });
+  function vm() {
+    let self = this;
+    self.coffee = ko.observableArray([]);
+
+    self.add = function (i) {
+      if (self.coffee[i].quantity < maxQuantity) {
+        self.coffee[i].quantity += 1;
+      }
+    };
+    self.subtract = function (i) {
+      if (self.coffee[i].quantity > minQuantity) {
+        self.coffee[i].quantity -= 1;
+      }
+    };
+    $.ajax({
+      url: "../coffee_data.json",
+      dataType: "json",
+      type: "GET",
+      success: function (data) {
+        // Store the data in the view model
+        //vm.coffee(data.coffees[localStorage.getItem("purchaseItem")]);
+        //console.log(data.coffees[localStorage.getItem("purchaseItem")]);
+        self.coffee(data.coffees);
+      },
+    });
+  }
 
   // Create a new instance of the ViewModel and apply bindings
-  ko.applyBindings(vm);
+  ko.applyBindings(new vm());
 
   $("#orderType").change(function () {
     if ($(this).val() == "delivery") {
@@ -30,7 +42,7 @@ $(document).ready(function () {
     }
   });
 
-  $("ul#cartList").on("click", "button.add", function () {
+  /*$("ul#cartList").on("click", "button.add", function () {
     // Get the quantity
     let quantity = parseInt($(this).siblings("input").val());
     if (quantity < maxQuantity) {
@@ -50,7 +62,7 @@ $(document).ready(function () {
         .siblings("input")
         .val(quantity - 1);
     }
-  });
+  });*/
 
   $("ul#cartList").on("click", "div.quantity", function () {
     if ($(this).children("input").val() >= maxQuantity) {

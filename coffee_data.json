@@ -13,7 +13,8 @@
         { "name": "BODY", "points": 2 }
       ],
 
-      "intensity": null
+      "intensity": null,
+      "quantity": 1
     },
     {
       "name": "COCOA TRUFFLE",
@@ -28,7 +29,8 @@
         { "name": "ROASTINESS", "points": 2 },
         { "name": "BODY", "points": 2 }
       ],
-      "intensity": null
+      "intensity": null,
+      "quantity": 1
     },
     {
       "name": "BUENOS AIRES LUNGO",
@@ -43,7 +45,8 @@
         { "name": "ROASTINESS", "points": 1 },
         { "name": "BODY", "points": 1 }
       ],
-      "intensity": 4
+      "intensity": 4,
+      "quantity": 1
     },
     {
       "name": "COLOMBIA",
@@ -57,7 +60,8 @@
         { "name": "ROASTINESS", "points": 3 },
         { "name": "BODY", "points": 3 }
       ],
-      "intensity": 6
+      "intensity": 6,
+      "quantity": 1
     },
     {
       "name": "ARPEGGIO",
@@ -71,7 +75,8 @@
         { "name": "ROASTINESS", "points": 4 },
         { "name": "BODY", "points": 4 }
       ],
-      "intensity": 9
+      "intensity": 9,
+      "quantity": 1
     },
     {
       "name": "ISTANBUL ESPRESSO",
@@ -88,7 +93,8 @@
         { "name": "CEREALS ROASTED/FRUITY", "points": 4 },
         { "name": "FRUITY/FLOWERY", "points": 3 }
       ],
-      "intensity": 8
+      "intensity": 8,
+      "quantity": 1
     },
     {
       "name": "NAPOLI",
@@ -103,7 +109,8 @@
         { "name": "ROASTINESS", "points": 5 },
         { "name": "BODY", "points": 5 }
       ],
-      "intensity": 13
+      "intensity": 13,
+      "quantity": 1
     }
   ]
 }

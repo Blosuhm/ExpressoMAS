@@ -118,7 +118,10 @@
 
               <span data-bind="text: name" style="width: 15ch"></span>
 
-              <div class="d-flex quantity">
+              <div
+                class="d-flex quantity"
+                data-bind="attr: {id: 'c' + $index()}"
+              >
                 <button
                   disabled
                   class="btn rounded-circle btn-secondary border-0 subtract"
@@ -130,10 +133,13 @@
                   type="number"
                   name="quantity"
                   value="1"
-                  data-bind="attr: {id: $index}"
+                  data-bind="attr: {value: quantity}"
                   style="width: 3rem"
                 />
-                <button class="btn rounded-circle btn-secondary border-0 add">
+                <button
+                  data-bind="click: function() {$root.add($index())}"
+                  class="btn rounded-circle btn-secondary border-0 add"
+                >
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
