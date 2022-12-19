@@ -18,4 +18,12 @@ $(document).ready(function () {
 
   // Create a new instance of the ViewModel and apply bindings
   ko.applyBindings(vm);
+
+  $("#orderType").change(function () {
+    if ($(this).val() == "delivery") {
+      $("#deliveryInfo").show();
+    } else {
+      $("#deliveryInfo").hide();
+    }
+  });
 });
