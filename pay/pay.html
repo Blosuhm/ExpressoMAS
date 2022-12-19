@@ -19,6 +19,7 @@
     <script src="../libs/knockout-3.5.1.js"></script>
   </head>
   <body>
+    <button style="margin-top: 300px; display: relative">hi</button>
     <div
       id="sidebar"
       class="offcanvas offcanvas-start bg-dark rounded ms-3 my-3"
@@ -124,6 +125,7 @@
               >
                 <button
                   disabled
+                  data-bind="click: function() {subtract($index())}"
                   class="btn rounded-circle btn-secondary border-0 subtract"
                 >
                   <i class="fa fa-minus" aria-hidden="true"></i>
@@ -132,12 +134,11 @@
                   class="form-control mx-2 text-center arrow-hidden"
                   type="number"
                   name="quantity"
-                  value="1"
-                  data-bind="attr: {value: quantity}"
+                  data-bind="value: quantity"
                   style="width: 3rem"
                 />
                 <button
-                  data-bind="click: function() {$root.add($index())}"
+                  data-bind="click: function() {add($index())}"
                   class="btn rounded-circle btn-secondary border-0 add"
                 >
                   <i class="fa fa-plus" aria-hidden="true"></i>

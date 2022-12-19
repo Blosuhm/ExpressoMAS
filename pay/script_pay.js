@@ -6,18 +6,24 @@ $(document).ready(function () {
 
   function vm() {
     let self = this;
+
     self.coffee = ko.observableArray([]);
 
     self.add = function (i) {
-      if (self.coffee[i].quantity < maxQuantity) {
-        self.coffee[i].quantity += 1;
+      if (self.coffee()[i]["quantity"] < maxQuantity) {
+        let coffeeObject = self.coffee()[i];
+        coffeeObject["quantity"] += 1;
+        self.coffee.replace(self.coffee()[i], coffeeObject);
       }
+      console.log(self.coffee());
     };
     self.subtract = function (i) {
-      if (self.coffee[i].quantity > minQuantity) {
-        self.coffee[i].quantity -= 1;
+      if (self.coffee()[i]["quantity"] > minQuantity) {
+        self.coffee()[i]["quantity"] -= 1;
       }
+      console.log(self.coffee());
     };
+
     $.ajax({
       url: "../coffee_data.json",
       dataType: "json",
@@ -32,7 +38,11 @@ $(document).ready(function () {
   }
 
   // Create a new instance of the ViewModel and apply bindings
-  ko.applyBindings(new vm());
+  ko.applyBindings(vm);
+
+  $("button").click(function () {
+    console.log(vm.coffee);
+  });
 
   $("#orderType").change(function () {
     if ($(this).val() == "delivery") {
