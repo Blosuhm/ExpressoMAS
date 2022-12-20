@@ -16,10 +16,8 @@
     />
     <link rel="stylesheet" href="../style.css" />
     <script src="../libs/jquery/jquery-3.6.1.js"></script>
-    <script src="../libs/knockout-3.5.1.js"></script>
   </head>
   <body>
-    <button style="margin-top: 300px; display: relative">hi</button>
     <div
       id="sidebar"
       class="offcanvas offcanvas-start bg-dark rounded ms-3 my-3"
@@ -113,7 +111,7 @@
             >
               <img
                 class="w-auto h-100"
-                data-bind="attr: {src: '../' + image}"
+                data-bind="attr: {src: '../' + image()}"
                 alt="Capsule"
               />
 
@@ -124,8 +122,7 @@
                 data-bind="attr: {id: 'c' + $index()}"
               >
                 <button
-                  disabled
-                  data-bind="click: function() {subtract($index())}"
+                  data-bind="click: function() {subtract($index())}, attr:{disabled: quantity() <= 1}"
                   class="btn rounded-circle btn-secondary border-0 subtract"
                 >
                   <i class="fa fa-minus" aria-hidden="true"></i>
@@ -134,18 +131,18 @@
                   class="form-control mx-2 text-center arrow-hidden"
                   type="number"
                   name="quantity"
-                  data-bind="value: quantity"
+                  data-bind="textInput: quantity(), value : quantity, valueUpdate: 'change', event: {change: function() {valueChange($index())}}"
                   style="width: 3rem"
                 />
                 <button
-                  data-bind="click: function() {add($index())}"
+                  data-bind="click: function() {add($index())}, attr:{disabled: quantity() >= 15}"
                   class="btn rounded-circle btn-secondary border-0 add"
                 >
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
 
-              <span data-bind="text: price + '€' "></span>
+              <span data-bind="text: price() + '€' "></span>
               <button class="border-0 btn">
                 <i class="fa fa-times-circle fs-4" aria-hidden="true"></i>
               </button>
@@ -276,6 +273,7 @@
     <script src="../libs/popper.min.js"></script>
     <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
     <script src="../libs/knockout-3.5.1.js"></script>
+    <script src="../libs/ko-mapping.js"></script>
     <script src="script_pay.js"></script>
   </body>
 </html>

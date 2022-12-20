@@ -6,22 +6,45 @@ $(document).ready(function () {
 
   function vm() {
     let self = this;
-
+    self.temp = ko.observableArray([]);
     self.coffee = ko.observableArray([]);
-
+    self.isDisabledS = ko.observable(true);
+    self.isDisabledA = ko.observable(false);
     self.add = function (i) {
-      if (self.coffee()[i]["quantity"] < maxQuantity) {
-        let coffeeObject = self.coffee()[i];
-        coffeeObject["quantity"] += 1;
-        self.coffee.replace(self.coffee()[i], coffeeObject);
+      if (self.coffee()[i].quantity() < maxQuantity) {
+        self.coffee()[i].quantity(self.coffee()[i].quantity() + 1);
       }
+      self.coffee.valueHasMutated();
       console.log(self.coffee());
     };
     self.subtract = function (i) {
-      if (self.coffee()[i]["quantity"] > minQuantity) {
-        self.coffee()[i]["quantity"] -= 1;
+      if (self.coffee()[i].quantity() > minQuantity) {
+        self.coffee()[i].quantity(self.coffee()[i].quantity() - 1);
       }
+      self.coffee.valueHasMutated();
       console.log(self.coffee());
+    };
+    self.valueChange = function (i) {
+      if (self.coffee()[i].quantity() > maxQuantity) {
+        self.coffee()[i].quantity(maxQuantity);
+      } else if (self.coffee()[i].quantity() < minQuantity) {
+        self.coffee()[i].quantity(minQuantity);
+      }
+
+      if (self.coffee()[i].quantity() >= maxQuantity) {
+        self.isDisabledA(true);
+      } else {
+        self.isDisabledA(false);
+      }
+
+      if (self.coffee()[i].quantity() <= minQuantity) {
+        self.isDisabledS(true);
+      } else {
+        self.isDisabledS(false);
+      }
+      self.coffee()[i].quantity(Number(self.coffee()[i].quantity()));
+      console.log("changed");
+      console.log(self.coffee()[i].quantity());
     };
 
     $.ajax({
@@ -32,7 +55,8 @@ $(document).ready(function () {
         // Store the data in the view model
         //vm.coffee(data.coffees[localStorage.getItem("purchaseItem")]);
         //console.log(data.coffees[localStorage.getItem("purchaseItem")]);
-        self.coffee(data.coffees);
+        self.temp = ko.mapping.fromJS(data.coffees);
+        self.coffee(self.temp());
       },
     });
   }
@@ -40,77 +64,11 @@ $(document).ready(function () {
   // Create a new instance of the ViewModel and apply bindings
   ko.applyBindings(vm);
 
-  $("button").click(function () {
-    console.log(vm.coffee);
-  });
-
   $("#orderType").change(function () {
     if ($(this).val() == "delivery") {
       $("#deliveryInfo").show();
     } else {
       $("#deliveryInfo").hide();
-    }
-  });
-
-  /*$("ul#cartList").on("click", "button.add", function () {
-    // Get the quantity
-    let quantity = parseInt($(this).siblings("input").val());
-    if (quantity < maxQuantity) {
-      // Update quantity
-      $(this)
-        .siblings("input")
-        .val(quantity + 1);
-    }
-  });
-
-  $("ul#cartList").on("click", "button.subtract", function () {
-    // Get the quantity
-    let quantity = parseInt($(this).siblings("input").val());
-    if (quantity > minQuantity) {
-      // Update quantity
-      $(this)
-        .siblings("input")
-        .val(quantity - 1);
-    }
-  });*/
-
-  $("ul#cartList").on("click", "div.quantity", function () {
-    if ($(this).children("input").val() >= maxQuantity) {
-      $(this).children("button.add").prop("disabled", true);
-    } else {
-      $(this).children("button.add").prop("disabled", false);
-    }
-    if ($(this).children("input").val() <= minQuantity) {
-      $(this).children("button.subtract").prop("disabled", true);
-    } else {
-      $(this).children("button.subtract").prop("disabled", false);
-    }
-  });
-
-  $("ul#cartList").on("change", "input", function () {
-    console.log("updated");
-    if (
-      !(
-        $.isNumeric($(this).val()) &&
-        Number.isInteger(parseFloat($(this).val()))
-      )
-    ) {
-      $(this).val(1);
-    } else if ($(this).val() > maxQuantity) {
-      $(this).val(maxQuantity);
-    } else if ($(this).val() < minQuantity) {
-      $(this).val(minQuantity);
-    }
-
-    if ($(this).val() >= maxQuantity) {
-      $(this).siblings("button.add").prop("disabled", true);
-    } else {
-      $(this).siblings("button.add").prop("disabled", false);
-    }
-    if ($(this).val() <= minQuantity) {
-      $(this).siblings("button.subtract").prop("disabled", true);
-    } else {
-      $(this).siblings("button.subtract").prop("disabled", false);
     }
   });
 });
