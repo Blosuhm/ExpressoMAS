@@ -18,10 +18,11 @@
     <script src="../libs/jquery/jquery-3.6.1.js"></script>
   </head>
   <body>
-    <div
+    <nav
       id="sidebar"
       class="offcanvas offcanvas-start bg-dark rounded ms-3 my-3"
       style="width: 250px"
+      aria-label="sidebar"
     >
       <a href="../index.html"
         ><img
@@ -48,12 +49,9 @@
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
 
-    <div
-      class="position-fixed w-100 top-0 start-0"
-      style="box-sizing: content-box; z-index: 1000"
-    >
+    <header class="position-fixed w-100 top-0 start-0">
       <div class="position-relative w-100" style="box-sizing: content-box">
         <nav
           id="navbar"
@@ -94,7 +92,7 @@
           </div>
         </nav>
       </div>
-    </div>
+    </header>
     <main class="container mb-3" style="margin-top: 100px">
       <div class="row">
         <ul
@@ -232,37 +230,40 @@
         <div class="modal-content d-inline-block w-auto">
           <div class="modal-body d-inline-block h-100" style="width: 32rem">
             <ul class="nav flex-column">
-              <li
-                class="btn btn-light nav-item my-2 d-flex justify-content-center"
-              >
-                <img
-                  src="../images/payment_imgs/MBWay.svg"
-                  alt="logo"
-                  style="height: 3rem"
-                />
-              </li>
-              <li
-                class="btn btn-light nav-item my-2 d-flex justify-content-center"
-              >
-                <img
-                  src="../images/payment_imgs/PayPal.svg"
-                  alt="logo"
-                  style="height: 3rem"
-                />
-              </li>
-              <li
-                class="btn btn-light nav-item my-2 d-flex justify-content-evenly"
-              >
-                <img
-                  src="../images/payment_imgs/Visa.svg"
-                  alt="logo"
-                  style="height: 3rem"
-                /><img
-                  src="../images/payment_imgs/Mastercard.svg"
-                  alt="logo"
-                  style="height: 3rem"
-                />
-              </li>
+              <a href="../success/success.html"
+                ><li
+                  class="btn btn-light nav-item my-2 d-flex justify-content-center"
+                >
+                  <img
+                    src="../images/payment_imgs/MBWay.svg"
+                    alt="logo"
+                    style="height: 3rem"
+                  /></li
+              ></a>
+              <a href="../success/success.html"
+                ><li
+                  class="btn btn-light nav-item my-2 d-flex justify-content-center"
+                >
+                  <img
+                    src="../images/payment_imgs/PayPal.svg"
+                    alt="logo"
+                    style="height: 3rem"
+                  /></li
+              ></a>
+              <a href="../success/success.html"
+                ><li
+                  class="btn btn-light nav-item my-2 d-flex justify-content-evenly"
+                >
+                  <img
+                    src="../images/payment_imgs/Visa.svg"
+                    alt="logo"
+                    style="height: 3rem"
+                  /><img
+                    src="../images/payment_imgs/Mastercard.svg"
+                    alt="logo"
+                    style="height: 3rem"
+                  /></li
+              ></a>
             </ul>
           </div>
         </div>

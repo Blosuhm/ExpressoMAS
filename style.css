@@ -16,6 +16,8 @@ svg,
 video {
   max-width: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 html {
@@ -55,6 +57,10 @@ body {
   text-align: center;
 }
 
+header {
+  z-index: 1000;
+}
+
 footer {
   background-color: hsl(0, 0%, 0%);
   color: #fff;
@@ -90,4 +96,8 @@ input.arrow-hidden[type="number"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   margin: 0;
+}
+
+.square {
+  aspect-ratio: 1/1;
 }

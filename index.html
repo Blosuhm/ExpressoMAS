@@ -23,10 +23,11 @@
     <title>Expresso!</title>
   </head>
   <body>
-    <div
+    <nav
       id="sidebar"
       class="offcanvas r offcanvas-start bg-dark rounded ms-3 my-3"
       style="width: 250px"
+      aria-label="sidebar"
     >
       <a href=""
         ><img
@@ -48,17 +49,19 @@
             >
           </li>
           <li class="nav-item btn btn-dark rounded-0 text-start border-0">
-            <a class="nav-link text-light p-4" href="#">Locations</a>
+            <a class="nav-link text-light p-4" href="locations/locations.html"
+              >Locations</a
+            >
           </li>
           <li class="nav-item btn btn-dark rounded-0 text-start border-0">
             <a class="nav-link text-light p-4" href="#">About</a>
           </li>
         </ul>
       </div>
-    </div>
-    <div class="position-fixed w-100" style="box-sizing: content-box">
+    </nav>
+    <header class="position-fixed w-100" style="box-sizing: content-box">
       <div class="position-relative w-100" style="box-sizing: content-box">
-        <nav
+        <div
           id="navbar"
           class="d-flex justify-content-around align-items-center px-0 position-fixed top-0 start-0 end-0 mx-auto w-100"
           style="max-width: 1920px"
@@ -95,9 +98,9 @@
               Sign up
             </button>
           </div>
-        </nav>
+        </div>
       </div>
-    </div>
+    </header>
     <div
       class="banner d-flex align-items-center"
       style="box-sizing: content-box"

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   function vm() {
     let self = this;
-    self.temp = ko.observableArray([]);
+
     self.coffee = ko.observableArray([]);
     self.isDisabledS = ko.observable(true);
     self.isDisabledA = ko.observable(false);
@@ -15,14 +15,14 @@ $(document).ready(function () {
         self.coffee()[i].quantity(self.coffee()[i].quantity() + 1);
       }
       self.coffee.valueHasMutated();
-      console.log(self.coffee());
+      console.log(self.coffee()[i].quantity());
     };
     self.subtract = function (i) {
       if (self.coffee()[i].quantity() > minQuantity) {
         self.coffee()[i].quantity(self.coffee()[i].quantity() - 1);
       }
       self.coffee.valueHasMutated();
-      console.log(self.coffee());
+      console.log(self.coffee()[i].quantity());
     };
     self.valueChange = function (i) {
       if (self.coffee()[i].quantity() > maxQuantity) {
@@ -43,7 +43,6 @@ $(document).ready(function () {
         self.isDisabledS(false);
       }
       self.coffee()[i].quantity(Number(self.coffee()[i].quantity()));
-      console.log("changed");
       console.log(self.coffee()[i].quantity());
     };
 
@@ -55,8 +54,8 @@ $(document).ready(function () {
         // Store the data in the view model
         //vm.coffee(data.coffees[localStorage.getItem("purchaseItem")]);
         //console.log(data.coffees[localStorage.getItem("purchaseItem")]);
-        self.temp = ko.mapping.fromJS(data.coffees);
-        self.coffee(self.temp());
+        temp = ko.mapping.fromJS(data.coffees);
+        self.coffee(temp());
       },
     });
   }
