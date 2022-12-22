@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/logo/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="../libs/bootstrap-5.2.2-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../libs/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../libs/jquery/jquery-3.6.1.js"></script>
+    <script src="../libs/knockout-3.5.1.js"></script>
+    <title>Signup</title>
+  </head>
+  <body>
+    <nav
+      id="sidebar"
+      class="offcanvas r offcanvas-start bg-dark rounded ms-3 my-3"
+      style="width: 250px"
+      aria-label="sidebar"
+    >
+      <a href="../"
+        ><img
+          class="rounded-top"
+          style="padding-bottom: 2rem"
+          src="../images/logo/logo.png"
+          alt="Logo"
+      /></a>
+      <div class="offcanvas-body p-0">
+        <ul class="nav flex-column">
+          <li class="nav-item btn btn-dark rounded-0 text-start border-0">
+            <a class="nav-link text-light p-4" aria-current="page" href="../"
+              >Home</a
+            >
+          </li>
+          <li
+            class="nav-item btn btn-dark active rounded-0 text-start border-0"
+          >
+            <a class="nav-link text-light active p-4" href="location.html"
+              >Locations</a
+            >
+          </li>
+          <li class="nav-item btn btn-dark rounded-0 text-start border-0">
+            <a class="nav-link text-light p-4" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header class="position-sticky top-0 w-100" style="box-sizing: content-box">
+      <div class="position-relative w-100" style="box-sizing: content-box">
+        <div
+          id="navbar"
+          class="d-flex justify-content-around align-items-center px-0 position-sticky top-0 start-0 end-0 mx-auto w-100 active"
+          style="max-width: 1920px"
+          aria-label="navigation"
+        >
+          <button
+            type="button"
+            class="bg-transparent text-dark border-0 ms-3 d-flex align-items-center"
+            data-bs-toggle="offcanvas"
+            href="#sidebar"
+            style="font-size: 2rem"
+          >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="d-flex align-items-center ms-3" style="height: 2rem">
+            <a href="../" class="h-100"
+              ><img
+                src="../images/logo/logo_transparent_text.png"
+                alt="Logo Name"
+                class="h-100 w-auto"
+            /></a>
+          </div>
+
+          <div class="ms-auto me-3">
+            <button
+              type="button"
+              class="btn rounded-pill my-btn"
+              style="background: rgb(255, 255, 255)"
+            >
+              <i class="fa fa-user" aria-hidden="true"></i>
+              Log in
+            </button>
+            <button type="button" class="btn btn-dark rounded-pill my-btn">
+              Sign up
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container d-flex">
+      <form class="card d-flex flex-column gap-2 mx-auto mt-5 p-3">
+        <div class="input-group">
+          <i
+            class="fa fa-user input-group-text d-flex align-items-center justify-content-center"
+            aria-hidden="true"
+            style="width: 2.5rem"
+          ></i>
+
+          <input
+            class="col-6 form-control"
+            id="userName"
+            type="text"
+            name="userName"
+            placeholder="Username"
+          />
+        </div>
+        <div class="input-group">
+          <i
+            class="fa fa-envelope input-group-text d-flex align-items-center justify-content-center"
+            aria-hidden="true"
+            style="width: 2.5rem"
+          ></i>
+          <input
+            class="form-control"
+            id="userEmail"
+            type="email"
+            name="userEmail"
+            placeholder="Email"
+          />
+        </div>
+        <div class="input-group">
+          <i
+            class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
+            aria-hidden="true"
+            style="width: 2.5rem"
+          ></i
+          ><input
+            class="form-control"
+            id="userPassword"
+            type="password"
+            name="userPassword"
+            placeholder="Password"
+          />
+        </div>
+        <div class="input-group">
+          <i
+            class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
+            aria-hidden="true"
+            style="width: 2.5rem"
+          ></i
+          ><input
+            class="form-control"
+            id="userPassword"
+            type="password"
+            name="userPassword"
+            placeholder="Re-Type Password"
+          />
+        </div>
+
+        <input
+          class="btn bg-black text-white"
+          type="submit"
+          type="button"
+          value="Register"
+        />
+      </form>
+    </main>
+    <script src="../libs/popper.min.js"></script>
+    <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="../libs/knockout-3.5.1.js"></script>
+    <script src="locations.js"></script>
+  </body>
+</html>
