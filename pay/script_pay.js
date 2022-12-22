@@ -5,7 +5,7 @@ $(document).ready(function () {
   // Define the ViewModel
 
   function vm() {
-    let self = this;
+    const self = this;
 
     self.coffee = ko.observableArray([]);
     self.isDisabledS = ko.observable(true);
@@ -14,14 +14,12 @@ $(document).ready(function () {
       if (self.coffee()[i].quantity() < maxQuantity) {
         self.coffee()[i].quantity(self.coffee()[i].quantity() + 1);
       }
-      self.coffee.valueHasMutated();
       console.log(self.coffee()[i].quantity());
     };
     self.subtract = function (i) {
       if (self.coffee()[i].quantity() > minQuantity) {
         self.coffee()[i].quantity(self.coffee()[i].quantity() - 1);
       }
-      self.coffee.valueHasMutated();
       console.log(self.coffee()[i].quantity());
     };
     self.valueChange = function (i) {
@@ -54,7 +52,7 @@ $(document).ready(function () {
         // Store the data in the view model
         //vm.coffee(data.coffees[localStorage.getItem("purchaseItem")]);
         //console.log(data.coffees[localStorage.getItem("purchaseItem")]);
-        temp = ko.mapping.fromJS(data.coffees);
+        const temp = ko.mapping.fromJS(data.coffees);
         self.coffee(temp());
       },
     });
