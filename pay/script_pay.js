@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$().ready(function () {
   const maxQuantity = 15;
   const minQuantity = 1;
 
@@ -23,22 +23,15 @@ $(document).ready(function () {
       console.log(self.coffee()[i].quantity());
     };
     self.valueChange = function (i) {
-      if (self.coffee()[i].quantity() > maxQuantity) {
+      if (!self.coffee()[i].quantity()) {
+        self.coffee()[i].quantity(minQuantity);
+      } else if (!/^\d+$/.test(self.coffee()[i].quantity())) {
+        let newval = self.coffee()[i].quantity().replace(/\D/g, "");
+        self.coffee()[i].quantity(newval);
+      } else if (self.coffee()[i].quantity() > maxQuantity) {
         self.coffee()[i].quantity(maxQuantity);
       } else if (self.coffee()[i].quantity() < minQuantity) {
         self.coffee()[i].quantity(minQuantity);
-      }
-
-      if (self.coffee()[i].quantity() >= maxQuantity) {
-        self.isDisabledA(true);
-      } else {
-        self.isDisabledA(false);
-      }
-
-      if (self.coffee()[i].quantity() <= minQuantity) {
-        self.isDisabledS(true);
-      } else {
-        self.isDisabledS(false);
       }
       self.coffee()[i].quantity(Number(self.coffee()[i].quantity()));
       console.log(self.coffee()[i].quantity());
