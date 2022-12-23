@@ -127,9 +127,9 @@
                 </button>
                 <input
                   class="form-control mx-2 text-center arrow-hidden"
-                  type="number"
+                  type="text"
                   name="quantity"
-                  data-bind="textInput: quantity(), value : quantity, valueUpdate: 'change', event: {change: function() {valueChange($index())}}"
+                  data-bind="textInput: quantity(), value : quantity, valueUpdate: 'input', event: {input: function() {valueChange($index())}}"
                   style="width: 3rem"
                 />
                 <button
