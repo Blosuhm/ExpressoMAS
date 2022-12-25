@@ -54,7 +54,8 @@ class Server(BaseHTTPRequestHandler):
             accounts["accounts"].append({
                 "username": username,
                 "email": email,
-                "password": password
+                "password": password,
+                "cart": []
             })
             with open("data.json", "w") as f:
                 json.dump(accounts, f, indent=4)

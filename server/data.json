@@ -1,29 +1,12 @@
 {
+    "logedIn": null,
+    "cart": [],
     "accounts": [
         {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890"
-        },
-        {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890"
-        },
-        {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890"
-        },
-        {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890"
-        },
-        {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890"
+            "username": "Blosuhmsju",
+            "email": "igdebugehoigd@ueuhgoi",
+            "password": "1234567890",
+            "cart": []
         }
     ]
 }

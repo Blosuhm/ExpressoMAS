@@ -9,16 +9,44 @@ $().ready(function () {
     self.submitForm = function () {
       if (validation()) {
         $.ajax({
-          url: "signup",
-          type: "POST",
+          url: "../server/data.json",
+          type: "GET",
           contentType: "application/json",
-          data: JSON.stringify({
-            username: self.username(),
-            password: self.password(),
-            email: self.email(),
-          }),
           success: function (data) {
-            console.log("Success");
+            // check if user is taken or email is taken
+            let userTaken = data.accounts.find(
+              (account) => account.username == self.username()
+            );
+
+            let emailTaken = data.accounts.find(
+              (account) => account.email == self.email()
+            );
+
+            if (userTaken) {
+              $("#userNameInUse").show();
+              return;
+            }
+            $("#userNameInUse").hide();
+            if (emailTaken) {
+              $("#emailInUse").show();
+              return;
+            }
+            $("#emailInUse").hide();
+            // if not taken, send data to server
+            $.ajax({
+              url: "signup",
+              type: "POST",
+              contentType: "application/json",
+              data: JSON.stringify({
+                username: self.username(),
+                password: self.password(),
+                email: self.email(),
+              }),
+              success: function (data) {
+                console.log("Success");
+                window.location.href = "../login/login.html";
+              },
+            });
           },
         });
       }
