@@ -11,7 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="../libs/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="../style.css" />
     <script src="../libs/jquery/jquery-3.6.1.js"></script>
@@ -95,7 +95,10 @@
       </div>
     </header>
     <main class="container d-flex">
-      <form class="card d-flex flex-column gap-2 mx-auto mt-5 p-3">
+      <form
+        class="card d-flex flex-column gap-2 mx-auto mt-5 p-3"
+        data-bind="submit: submitForm"
+      >
         <div class="input-group">
           <i
             class="fa fa-user input-group-text d-flex align-items-center justify-content-center"
@@ -108,9 +111,17 @@
             id="userName"
             type="text"
             name="userName"
+            data-bind="value: username"
             placeholder="Username"
           />
         </div>
+        <span id="userNameValidation" class="text-danger" style="display: none"
+          >Username must be at least 3 characters
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </span
+        ><span id="userNameInUse" class="text-danger" style="display: none"
+          >Username is already taken
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </span>
         <div class="input-group">
           <i
             class="fa fa-envelope input-group-text d-flex align-items-center justify-content-center"
@@ -119,12 +130,22 @@
           ></i>
           <input
             class="form-control"
-            id="userEmail"
+            id="email"
             type="email"
-            name="userEmail"
+            name="email"
+            formnovalidate
+            data-bind="value: email"
             placeholder="Email"
           />
         </div>
+        <span id="emailValidation" class="text-danger" style="display: none"
+          >Invalid email format
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </span>
+        <span id="emailInUse" class="text-danger" style="display: none"
+          >Email already exists
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </span>
         <div class="input-group">
           <i
             class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
@@ -133,12 +154,17 @@
           ></i
           ><input
             class="form-control"
-            id="userPassword"
+            id="password"
             type="password"
-            name="userPassword"
+            name="password"
+            data-bind="value: password"
             placeholder="Password"
           />
         </div>
+        <span id="passwordValidation" class="text-danger" style="display: none"
+          >Password must be at least 8 characters
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </span>
         <div class="input-group">
           <i
             class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
@@ -147,24 +173,28 @@
           ></i
           ><input
             class="form-control"
-            id="userPassword"
+            id="confirmPassword"
             type="password"
-            name="userPassword"
+            data-bind="value: confirmPassword"
             placeholder="Re-Type Password"
           />
         </div>
 
-        <input
-          class="btn bg-black text-white"
-          type="submit"
-          type="button"
-          value="Register"
-        />
+        <span
+          id="confirmPasswordValidation"
+          class="text-danger"
+          style="display: none"
+          >Incorrect Password
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </span>
+
+        <input class="btn bg-black text-white" type="submit" value="Register" />
       </form>
     </main>
     <script src="../libs/popper.min.js"></script>
     <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
     <script src="../libs/knockout-3.5.1.js"></script>
-    <script src="locations.js"></script>
+    <script src="../libs/knockout.validation.min.js"></script>
+    <script src="signup.js"></script>
   </body>
 </html>
