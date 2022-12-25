@@ -97,32 +97,8 @@
     <main class="container d-flex">
       <form
         class="card d-flex flex-column gap-2 mx-auto mt-5 p-3"
-        data-bind="submit: submitForm"
+        data-bind="submit: login"
       >
-        <h2 class="text-center">Create Account</h2>
-        <div class="input-group">
-          <i
-            class="fa fa-user input-group-text d-flex align-items-center justify-content-center"
-            aria-hidden="true"
-            style="width: 2.5rem"
-          ></i>
-
-          <input
-            class="col-6 form-control"
-            id="userName"
-            type="text"
-            name="userName"
-            data-bind="value: username"
-            placeholder="Username"
-          />
-        </div>
-        <span id="userNameValidation" class="text-danger" style="display: none"
-          >Username must be at least 3 characters
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </span
-        ><span id="userNameInUse" class="text-danger" style="display: none"
-          >Username is already taken
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </span>
         <div class="input-group">
           <i
             class="fa fa-envelope input-group-text d-flex align-items-center justify-content-center"
@@ -139,14 +115,6 @@
             placeholder="Email"
           />
         </div>
-        <span id="emailValidation" class="text-danger" style="display: none"
-          >Invalid email format
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </span>
-        <span id="emailInUse" class="text-danger" style="display: none"
-          >Email already exists
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </span>
         <div class="input-group">
           <i
             class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
@@ -162,34 +130,6 @@
             placeholder="Password"
           />
         </div>
-        <span id="passwordValidation" class="text-danger" style="display: none"
-          >Password must be at least 8 characters
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </span>
-        <div class="input-group">
-          <i
-            class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
-            aria-hidden="true"
-            style="width: 2.5rem"
-          ></i
-          ><input
-            class="form-control"
-            id="confirmPassword"
-            type="password"
-            data-bind="value: confirmPassword"
-            placeholder="Re-Type Password"
-          />
-        </div>
-
-        <span
-          id="confirmPasswordValidation"
-          class="text-danger"
-          style="display: none"
-          >Incorrect Password
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </span>
-
-        <input class="btn bg-black text-white" type="submit" value="Register" />
       </form>
     </main>
     <script src="../libs/popper.min.js"></script>
