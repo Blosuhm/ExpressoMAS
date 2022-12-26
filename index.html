@@ -84,24 +84,65 @@
                 class="h-100 w-auto"
             /></a>
           </div>
-
+          <!-- ko if: loggedIn() === null -->
           <div class="ms-auto me-3">
+            <a href="login/login.html"
+              ><button
+                type="button"
+                class="btn rounded-pill my-btn"
+                style="background: rgb(255, 255, 255)"
+              >
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Log in
+              </button></a
+            >
+
+            <a href="signup/signup.html"
+              ><button type="button" class="btn btn-dark rounded-pill my-btn">
+                Sign up
+              </button></a
+            >
+          </div>
+          <!--/ko-->
+
+          <!-- ko ifnot: loggedIn() === null -->
+          <div class="ms-auto me-3 d-flex align-items-center">
+            <span
+              class="text-white fs-1 me-3 bg-black rounded-1"
+              data-bind="text: userName"
+            ></span>
             <button
               type="button"
               class="btn rounded-pill my-btn"
               style="background: rgb(255, 255, 255)"
+              data-bs-toggle="modal"
+              data-bs-target="#logoutModal"
             >
-              <i class="fa fa-user" aria-hidden="true"></i>
-              Log in
-            </button>
-            <button type="button" class="btn btn-dark rounded-pill my-btn">
-              Sign up
+              Log out
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
             </button>
           </div>
+
+          <!-- /ko -->
         </div>
       </div>
     </header>
-    <div
+    <div id="logoutModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body d-flex justify-content-center flex-column align-items-center"
+          >
+            <h3>Are you sure?</h3>
+            <div class="d-flex justify-content-center gap-3">
+              <button class="btn shadow" data-bind="click: logOut">Yes</button>
+              <button class="btn shadow bg-black text-white">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <banner
       class="banner d-flex align-items-center"
       style="box-sizing: content-box"
     >
@@ -110,7 +151,7 @@
         dolorum iure non aut ducimus, dolor aspernatur suscipit deserunt
         sapiente explicabo harum, enim perferendis soluta velit.
       </p>
-    </div>
+    </banner>
     <main class="container mt-3">
       <div class="d-flex justify-content-center">
         <div
@@ -222,7 +263,7 @@
                         <button
                           id="order"
                           class="btn btn-success"
-                          data-bind="click: function() {$root.saveData($index())} "
+                          data-bind="click: function() {saveData($index())} "
                         >
                           Order
                         </button>

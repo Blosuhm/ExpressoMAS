@@ -3,7 +3,7 @@ import os
 import json
 import mimetypes
 
-
+accounts_path = "data.json"
 class Server(BaseHTTPRequestHandler):
     def do_GET(self):
         # Get the parent directory of the script
@@ -36,12 +36,23 @@ class Server(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length)
         post_data = post_data.decode("utf-8")
         print(post_data)
+        
 
         # Parse the POST data as a form
+        if self.path.endswith("/logout"):
+            with open(accounts_path, "r") as f:
+                accounts = json.load(f)
+                accounts["loggedIn"] = None
+            with open(accounts_path, "w") as f:
+                json.dump(accounts, f, indent=4)
+
         if self.path == "/login/login":
             data = json.loads(post_data)
-            with open("data.json", "r") as f:
-                account = json.loads(f)
+            with open(accounts_path, "r") as f:
+                accounts = json.load(f)
+                accounts["loggedIn"] = data
+            with open(accounts_path, "w") as f:
+                json.dump(accounts, f, indent=4)
 
         if self.path == "/signup/signup":
             print("Signing up...")
@@ -54,7 +65,7 @@ class Server(BaseHTTPRequestHandler):
             password = data["password"]
 
             # Append the new account to the "accounts" list in the JSON file
-            with open("data.json", "r") as f:
+            with open(accounts_path, "r") as f:
                 accounts = json.load(f)
             accounts["accounts"].append({
                 "username": username,
@@ -62,7 +73,7 @@ class Server(BaseHTTPRequestHandler):
                 "password": password,
                 "cart": []
             })
-            with open("data.json", "w") as f:
+            with open(accounts_path, "w") as f:
                 json.dump(accounts, f, indent=4)
 
         # Send a response to the client

@@ -12,6 +12,10 @@ $().ready(function () {
           let user = data.accounts.find(
             (account) => account.email == self.email()
           );
+          let index = data.accounts.findIndex(
+            (account) => account.email == self.email()
+          );
+
           console.log(user);
           $("#passwordValidation").hide();
           $("#emailValidation").hide();
@@ -22,9 +26,12 @@ $().ready(function () {
                 url: "login",
                 type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify(user),
+                data: JSON.stringify(index),
+                success: function (data) {
+                  console.log(data);
+                  window.location.href = "../index.html";
+                },
               });
-              window.location.href = "../index.html";
             } else {
               $("#passwordValidation").show();
             }
