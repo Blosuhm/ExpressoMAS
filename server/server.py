@@ -38,6 +38,11 @@ class Server(BaseHTTPRequestHandler):
         print(post_data)
 
         # Parse the POST data as a form
+        if self.path == "/login/login":
+            data = json.loads(post_data)
+            with open("data.json", "r") as f:
+                account = json.loads(f)
+
         if self.path == "/signup/signup":
             print("Signing up...")
             # Convert the POST data to a dictionary

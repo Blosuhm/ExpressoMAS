@@ -99,6 +99,7 @@
         class="card d-flex flex-column gap-2 mx-auto mt-5 p-3"
         data-bind="submit: login"
       >
+        <h2 class="text-center">Log In</h2>
         <div class="input-group">
           <i
             class="fa fa-envelope input-group-text d-flex align-items-center justify-content-center"
@@ -115,6 +116,9 @@
             placeholder="Email"
           />
         </div>
+        <span id="emailValidation" class="text-danger" style="display: none"
+          >Email not found</span
+        >
         <div class="input-group">
           <i
             class="fa fa-lock input-group-text d-flex align-items-center justify-content-center"
@@ -130,11 +134,15 @@
             placeholder="Password"
           />
         </div>
+        <span id="passwordValidation" class="text-danger" style="display: none"
+          >Incorrect Password</span
+        >
+        <input class="btn bg-black text-white" type="submit" value="Log in" />
       </form>
     </main>
     <script src="../libs/popper.min.js"></script>
     <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
     <script src="../libs/knockout-3.5.1.js"></script>
-    <script src="signup.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
