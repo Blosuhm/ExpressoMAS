@@ -1,5 +1,5 @@
 {
-    "loggedIn": 2,
+    "loggedIn": 3,
     "cart": [],
     "accounts": [
         {
@@ -18,6 +18,12 @@
             "username": "gajofdd",
             "email": "gajofdd@bananas",
             "password": "12345678",
+            "cart": []
+        },
+        {
+            "username": "bananas",
+            "email": "abc@abc",
+            "password": "1234567890",
             "cart": []
         }
     ]
