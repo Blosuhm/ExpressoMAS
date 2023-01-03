@@ -3,8 +3,6 @@
     {
       "name": "VANILLA ÉCLAIR",
       "description": "VANILLA ECLAIR FLAVOURED COFFEE",
-      "image": "images/cc_img/vanilla_eclair.png",
-      "photo": "images/c_photos/vanilla_eclair.png",
       "price": 0.55,
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
@@ -12,17 +10,13 @@
         { "name": "ROASTINESS", "points": 2 },
         { "name": "BODY", "points": 2 }
       ],
-
       "intensity": null,
       "quantity": 1
     },
     {
       "name": "COCOA TRUFFLE",
       "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
-      "image": "images/cc_img/cocoa_truffle.png",
-      "photo": "images/c_photos/cocoa_truffle.png",
       "price": 0.44,
-
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
         { "name": "ACIDITY", "points": 1 },
@@ -35,10 +29,7 @@
     {
       "name": "BUENOS AIRES LUNGO",
       "description": "DISTINCT DELIGHT SWEET & CEREAL",
-      "image": "images/cc_img/buenos_aires_lungo.png",
-      "photo": "images/c_photos/buenos_aires_lungo.png",
       "price": 0.49,
-
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
         { "name": "ACIDITY", "points": 2 },
@@ -51,8 +42,6 @@
     {
       "name": "COLOMBIA",
       "description": "FRUITY AND VIBRANT",
-      "image": "images/cc_img/colombia.png",
-      "photo": "images/c_photos/colombia.png",
       "price": 0.51,
       "stats": [
         { "name": "BITTERNESS", "points": 3 },
@@ -66,8 +55,6 @@
     {
       "name": "ARPEGGIO",
       "description": "INTENSE AND CREAMY COFFEE",
-      "image": "images/cc_img/arpeggio.png",
-      "photo": null,
       "price": 0.44,
       "stats": [
         { "name": "BITTERNESS", "points": 4 },
@@ -81,8 +68,6 @@
     {
       "name": "ISTANBUL ESPRESSO",
       "description": "ROASTED WITH A FRUITY NOTE AND A HINT OF ALMOND",
-      "image": "images/cc_img/istanbul_espresso.png",
-      "photo": "images/c_photos/istanbul_espresso.png",
       "price": 0.46,
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
@@ -99,10 +84,7 @@
     {
       "name": "NAPOLI",
       "description": "EXCEPTIONALLY DARK AND CREAMY",
-      "image": "images/cc_img/napoli.png",
-      "photo": null,
       "price": 0.44,
-
       "stats": [
         { "name": "BITTERNESS", "points": 5 },
         { "name": "ACIDITY", "points": 1 },
