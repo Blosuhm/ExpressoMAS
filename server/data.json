@@ -39,6 +39,114 @@
                     "photo": "images/capsule-banner/buenos-aires-lungo.png",
                     "image": "images/capsule-picture/buenos-aires-lungo.png",
                     "quantityPure": 2
+                },
+                {
+                    "name": "VANILLA \u00c9CLAIR",
+                    "description": "VANILLA ECLAIR FLAVOURED COFFEE",
+                    "price": 0.55,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 1
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 1
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 2
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 2
+                        }
+                    ],
+                    "intensity": null,
+                    "photo": "images/capsule-banner/vanilla-eclair.png",
+                    "image": "images/capsule-picture/vanilla-eclair.png",
+                    "quantityPure": 5
+                },
+                {
+                    "name": "COCOA TRUFFLE",
+                    "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
+                    "price": 0.44,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 1
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 1
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 2
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 2
+                        }
+                    ],
+                    "intensity": null,
+                    "photo": "images/capsule-banner/cocoa-truffle.png",
+                    "image": "images/capsule-picture/cocoa-truffle.png",
+                    "quantityPure": 1
+                },
+                {
+                    "name": "ARPEGGIO",
+                    "description": "INTENSE AND CREAMY COFFEE",
+                    "price": 0.44,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 4
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 2
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 4
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 4
+                        }
+                    ],
+                    "intensity": 9,
+                    "photo": "images/capsule-banner/arpeggio.png",
+                    "image": "images/capsule-picture/arpeggio.png",
+                    "quantityPure": 1
+                },
+                {
+                    "name": "RISTRETTO",
+                    "description": "POWERFUL AND CONTRASTING",
+                    "price": 0.44,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 4
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 3
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 4
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 4
+                        }
+                    ],
+                    "intensity": 10,
+                    "photo": "images/capsule-banner/ristretto.png",
+                    "image": "images/capsule-picture/ristretto.png",
+                    "quantityPure": 1
                 }
             ]
         },
