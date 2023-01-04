@@ -40,6 +40,7 @@ body {
 .coffee-img {
   width: 240px !important;
   height: 240px;
+  object-fit: cover;
 }
 
 .modal-image {
