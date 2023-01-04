@@ -8,8 +8,8 @@ $().ready(function () {
     const self = this;
 
     self.coffee = ko.observableArray([]);
-    self.isDisabledS = ko.observable(true);
-    self.isDisabledA = ko.observable(false);
+    // self.isDisabledS = ko.observable(true);
+    // self.isDisabledA = ko.observable(false);
     self.add = function (i) {
       if (self.coffee()[i].quantity() < maxQuantity) {
         self.coffee()[i].quantity(self.coffee()[i].quantity() + 1);

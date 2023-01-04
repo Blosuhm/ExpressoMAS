@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/logo/favicon.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+    />
     <link
       href="https://fonts.cdnfonts.com/css/avenir-next-lt-pro"
       rel="stylesheet"
@@ -143,16 +149,123 @@
       </div>
     </div>
     <banner
-      class="banner d-flex align-items-center"
+      class="banner d-flex align-items-center justify-content-center"
       style="box-sizing: content-box"
     >
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-        dolorum iure non aut ducimus, dolor aspernatur suscipit deserunt
-        sapiente explicabo harum, enim perferendis soluta velit.
-      </p>
+      <h1 class="fw-bold slogan">
+        Your time is precious, let us handle the coffee
+      </h1>
     </banner>
     <main class="container mt-3">
+      <div
+        class="cart d-flex justify-content-end my-3 gap-3"
+        style="margin-right: 11rem"
+      >
+        <button
+          class="btn btn-success"
+          type="button"
+          data-bind="attr: { disabled: cart().length === 0 }"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#cart"
+        >
+          <i class="fs-4 fa fa-shopping-cart" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-danger" data-bind="click: clearCart">
+          Clear
+        </button>
+        <div class="rounded-pill"></div>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="cart"
+          aria-labelledby="offcanvasLabel"
+        >
+          <div class="offcanvas-header">
+            <h2
+              class="offcanvas-title text-muted fw-semibold"
+              id="offcanvasLabel"
+            >
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> - Your Cart
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <a href="pay/pay.html"
+              ><button class="btn btn-success">Proceed to payment</button></a
+            >
+            <div class="d-flex my-4">
+              <h5 class="card-subtitle text-muted">Total:</h5>
+              <h5
+                class="card-subtitle text-muted ms-auto fw-bolder"
+                data-bind="text: totalPrice().toFixed(2) + ' €'"
+              ></h5>
+            </div>
+
+            <ul
+              id="cartList"
+              class="list-group rounded-0 gap-3"
+              data-bind="foreach:cart"
+            >
+              <li
+                class="list-group-item border-end-0 border-start-0"
+                style="height: 13rem"
+              >
+                <div
+                  class="d-flex w-100 h-100 justify-content-between py-4 align-items-center"
+                >
+                  <span
+                    class="fw-bold"
+                    data-bind="text: name"
+                    style="width: 15ch"
+                  ></span>
+
+                  <div
+                    class="d-flex quantity"
+                    data-bind="attr: {id: 'c' + $index()}"
+                  >
+                    <button
+                      data-bind="click: function() {$root.subtract($index())}, attr:{disabled: quantity() <= 1}"
+                      class="btn rounded-circle btn-secondary border-0 subtract"
+                    >
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <input
+                      class="form-control mx-2 text-center arrow-hidden"
+                      type="text"
+                      name="quantity"
+                      data-bind="textInput: quantity(), value : quantity, valueUpdate: 'input', event: {input: function() {valueChange($index())}}"
+                      style="width: 3rem"
+                    />
+                    <button
+                      data-bind="click: function() {$root.add($index())}, attr:{disabled: quantity() >= 15}"
+                      class="btn rounded-circle btn-secondary border-0 add"
+                    >
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                  <span
+                    class="fw-semibold"
+                    data-bind="text: price + '€' "
+                  ></span>
+                  <button
+                    class="border-0 btn"
+                    data-bind="click: function(){$root.removeFromCart($data)}"
+                  >
+                    <i class="fa fa-times-circle fs-4" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="d-flex justify-content-center">
         <div
           class="row mx-0 row-cols-1 row-cols-lg-2 row-cols-xl-3 w-75"
@@ -181,13 +294,21 @@
                   data-bind="text: description"
                   style="height: 3em"
                 ></p>
-                <a
-                  href="#"
-                  class="btn btn-success"
-                  data-bs-toggle="modal"
-                  data-bind="attr: {'data-bs-target': '#c' + $index()}"
-                  >VIEW</a
-                >
+                <span class="mb-3" data-bind="text: price + ' €'"></span>
+                <div class="d-flex gap-2 justify-content-center">
+                  <button
+                    class="btn btn-success"
+                    data-bind="click: function(){$root.addToCart($data)}, attr:{disabled: $root.cart().some(function(item) {return item.name === name})}"
+                  >
+                    BUY</button
+                  ><button
+                    class="btn btn-success"
+                    data-bs-toggle="modal"
+                    data-bind="attr: {'data-bs-target': '#c' + $index()}"
+                  >
+                    VIEW
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -263,7 +384,7 @@
                         <button
                           id="order"
                           class="btn btn-success"
-                          data-bind="click: function() {saveData($index())} "
+                          data-bind="click: function() {$root.addToCart($data)}, attr:{disabled: $root.cart().some(function(item) {return item.name === name})}"
                         >
                           Order
                         </button>

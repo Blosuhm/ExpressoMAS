@@ -1,5 +1,5 @@
 {
-    "loggedIn": 3,
+    "loggedIn": 1,
     "cart": [],
     "accounts": [
         {
@@ -12,7 +12,35 @@
             "username": "Blosuhm",
             "email": "zakhar.kruptsala@gmail.com",
             "password": "1234567890",
-            "cart": []
+            "cart": [
+                {
+                    "name": "BUENOS AIRES LUNGO",
+                    "description": "DISTINCT DELIGHT SWEET & CEREAL",
+                    "price": 0.49,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 1
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 2
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 1
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 1
+                        }
+                    ],
+                    "intensity": 4,
+                    "photo": "images/capsule-banner/buenos-aires-lungo.png",
+                    "image": "images/capsule-picture/buenos-aires-lungo.png",
+                    "quantityPure": 2
+                }
+            ]
         },
         {
             "username": "gajofdd",
