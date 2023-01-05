@@ -39,6 +39,14 @@ class Server(BaseHTTPRequestHandler):
         
 
         # Parse the POST data as a form
+        if self.path.endswith("/add-to-cart"):
+            data = json.loads(post_data)
+            print("hi",data)
+            with open(accounts_path, "r") as f:
+                accounts = json.load(f)
+                accounts["accounts"][accounts["loggedIn"]]["cart"] = data.get("cart")
+            with open(accounts_path, "w") as f:
+                json.dump(accounts, f, indent=4)
         if self.path.endswith("/logout"):
             with open(accounts_path, "r") as f:
                 accounts = json.load(f)

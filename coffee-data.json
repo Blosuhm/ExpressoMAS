@@ -3,8 +3,6 @@
     {
       "name": "VANILLA ÉCLAIR",
       "description": "VANILLA ECLAIR FLAVOURED COFFEE",
-      "image": "images/cc_img/vanilla_eclair.png",
-      "photo": "images/c_photos/vanilla_eclair.png",
       "price": 0.55,
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
@@ -19,8 +17,6 @@
     {
       "name": "COCOA TRUFFLE",
       "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
-      "image": "images/cc_img/cocoa_truffle.png",
-      "photo": "images/c_photos/cocoa_truffle.png",
       "price": 0.44,
 
       "stats": [
@@ -35,10 +31,7 @@
     {
       "name": "BUENOS AIRES LUNGO",
       "description": "DISTINCT DELIGHT SWEET & CEREAL",
-      "image": "images/cc_img/buenos_aires_lungo.png",
-      "photo": "images/c_photos/buenos_aires_lungo.png",
       "price": 0.49,
-
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
         { "name": "ACIDITY", "points": 2 },
@@ -51,8 +44,6 @@
     {
       "name": "COLOMBIA",
       "description": "FRUITY AND VIBRANT",
-      "image": "images/cc_img/colombia.png",
-      "photo": "images/c_photos/colombia.png",
       "price": 0.51,
       "stats": [
         { "name": "BITTERNESS", "points": 3 },
@@ -66,8 +57,6 @@
     {
       "name": "ARPEGGIO",
       "description": "INTENSE AND CREAMY COFFEE",
-      "image": "images/cc_img/arpeggio.png",
-      "photo": null,
       "price": 0.44,
       "stats": [
         { "name": "BITTERNESS", "points": 4 },
@@ -81,8 +70,6 @@
     {
       "name": "ISTANBUL ESPRESSO",
       "description": "ROASTED WITH A FRUITY NOTE AND A HINT OF ALMOND",
-      "image": "images/cc_img/istanbul_espresso.png",
-      "photo": "images/c_photos/istanbul_espresso.png",
       "price": 0.46,
       "stats": [
         { "name": "BITTERNESS", "points": 1 },
@@ -99,10 +86,7 @@
     {
       "name": "NAPOLI",
       "description": "EXCEPTIONALLY DARK AND CREAMY",
-      "image": "images/cc_img/napoli.png",
-      "photo": null,
       "price": 0.44,
-
       "stats": [
         { "name": "BITTERNESS", "points": 5 },
         { "name": "ACIDITY", "points": 1 },
@@ -111,6 +95,153 @@
       ],
       "intensity": 13,
       "quantity": 1
+    },
+    {
+      "name": "INFINIMENT ESPRESSO",
+      "description": "CEREAL AND FRUITY",
+      "price": 0.55,
+      "stats": [
+        { "name": "BITTERNESS", "points": 3 },
+        { "name": "ACIDITY", "points": 3 },
+        { "name": "ROASTINESS", "points": 3 },
+        { "name": "BODY", "points": 3 }
+      ],
+      "intensity": 6,
+      "quantity": 1
+    },
+    {
+      "name": "RISTRETTO",
+      "description": "POWERFUL AND CONTRASTING",
+      "price": 0.44,
+      "stats": [
+        { "name": "BITTERNESS", "points": 4 },
+        { "name": "ACIDITY", "points": 3 },
+        { "name": "ROASTINESS", "points": 4 },
+        { "name": "BODY", "points": 4 }
+      ],
+      "intensity": 10,
+      "quantity": 1
+    },
+
+    {
+      "name": "INDONESIA",
+      "description": "UNIQUE AND FULL-BODIED",
+      "price": 0.51,
+      "stats": [
+        { "name": "BITTERNESS", "points": 4 },
+        { "name": "ACIDITY", "points": 2 },
+        { "name": "ROASTINESS", "points": 3 },
+        { "name": "BODY", "points": 4 }
+      ],
+      "intensity": 8,
+      "quantity": 1
+    },
+    {
+      "name": "SHANGHAI LUNGO",
+      "description": "A MODERN TRADITION & FRUITY WITH A FINE ACIDITY",
+      "price": 0.49,
+      "stats": [
+        { "name": "BITTERNESS", "points": 1 },
+        { "name": "ACIDITY", "points": 2 },
+        { "name": "ROASTINESS", "points": 2 },
+        { "name": "BODY", "points": 2 }
+      ],
+      "intensity": 5,
+      "quantity": 1
+    },
+    {
+      "name": "SCURO",
+      "description": "FOR INTENSE BUT BALANCED MILK RECIPES",
+      "price": 0.51,
+      "stats": [
+        { "name": "BITTERNESS", "points": 3 },
+        { "name": "ACIDITY", "points": 3 },
+        { "name": "ROASTINESS", "points": 3 },
+        { "name": "BODY", "points": 2 }
+      ],
+      "intensity": 5,
+      "quantity": 1
+    },
+    {
+      "name": "CARAMEL CRÈME BRULEE",
+      "description": "A SWEET CARAMEL HEART",
+      "price": 0.55,
+      "stats": [
+        { "name": "BITTERNESS", "points": 2 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 1 },
+        { "name": "BODY", "points": 1 }
+      ],
+      "intensity": 3,
+      "quantity": 1
+    },
+    {
+      "name": "RIO DE JANEIRO ESPRESSO",
+      "description": "HERBAL AND SPICY",
+      "price": 0.46,
+      "stats": [
+        { "name": "BITTERNESS", "points": 4 },
+        { "name": "ACIDITY", "points": 1 },
+        { "name": "ROASTINESS", "points": 4 },
+        { "name": "BODY", "points": 4 }
+      ],
+      "intensity": 9,
+      "quantity": 1
+    },
+    {
+      "name": "ETHIOPIA",
+      "description": "SWEET AND FRAGRANT",
+      "price": 0.51,
+      "stats": [
+        { "name": "BITTERNESS", "points": 2 },
+        { "name": "ACIDITY", "points": 4 },
+        { "name": "ROASTINESS", "points": 2 },
+        { "name": "BODY", "points": 2 }
+      ],
+      "intensity": 4,
+      "quantity": 1
+    }
+  ],
+
+  "locations": [
+    {
+      "name": "EXPRESSO!",
+      "address": "R. dos Combatentes da Grande Guerra, 3810-128 Aveiro",
+      "contact": "232 533 187",
+      "description": "This is one of our coffee shops! As you would expect, we have everything a coffee fan would like. If you are one, then this is the perfect place for you. Come and take a visit!"
+    },
+    {
+      "name": "PORTA DO CAFÉ",
+      "address": "R. de Luís Cipriano 23, 3810-128 Aveiro",
+      "contact": "930 533 187",
+      "description": "Expresso! coffee partner is located at R. de Luís Cipriano 23, Aveiro, PT, 3810-128. The establishment is located near the Forum of Aveiro and is modern with affordable prices. It offers good internet quality and is a quiet place to work."
+    },
+    {
+      "name": "MILAGRE COFFEE SHOP",
+      "address": "R. do Lavadouro 06, 3800-208 Aveiro",
+      "contact": "913 220 888",
+      "description": "Expresso! coffee partner is located at R. do Lavadouro 06, 3800-208 Aveiro. The establishment is located near the Fábrica dos Ovos, a well known place in Aveiro. The space is quiet and peaceful, which provides a great place to work."
+    },
+    {
+      "name": "MARAVILHAS",
+      "address": "Praça do Mercado 04, 3800-223 Aveiro",
+      "contact": "234 062 720",
+      "description": "Expresso! coffee partner is located at Praça do Mercado 04, 3800-223 Aveiro. The establishment is pretty close to Forum Aveiro. The space is quiet and peaceful. This establishment also serves meals, so it's a great place for you to have lunch or dinner with a group of friends of yours. Highly recommendable by others users."
+    }
+  ],
+
+  "accounts": [
+    {
+      "username": "user1",
+      "password": "1234567890",
+      "email": "user1@email.com",
+      "cart": []
+    },
+    {
+      "username": "user2",
+      "password": "0987654321",
+      "email": "user2@email.com",
+      "cart": []
     }
   ]
 }

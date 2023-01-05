@@ -40,6 +40,7 @@ body {
 .coffee-img {
   width: 240px !important;
   height: 240px;
+  object-fit: cover;
 }
 
 .modal-image {
@@ -102,7 +103,10 @@ input.arrow-hidden[type="number"] {
   aspect-ratio: 1/1;
 }
 
-.nav-item.text-end {
-  color: rgb(96, 13, 13);
-  font-size:large
+.slogan {
+  font-family: "ubuntu", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px #000;
 }

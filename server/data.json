@@ -1,28 +1,44 @@
 {
-    "loggedIn": 4,
+    "loggedIn": 1,
     "cart": [],
     "accounts": [
         {
-            "username": "Blosuhmsju",
-            "email": "igdebugehoigd@ueuhgoi",
+            "username": "Utilizador",
+            "email": "utilizador@email.com",
             "password": "1234567890",
-            "cart": []
+            "cart": [
+                {
+                    "name": "COCOA TRUFFLE",
+                    "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
+                    "price": 0.44,
+                    "stats": [
+                        {
+                            "name": "BITTERNESS",
+                            "points": 1
+                        },
+                        {
+                            "name": "ACIDITY",
+                            "points": 1
+                        },
+                        {
+                            "name": "ROASTINESS",
+                            "points": 2
+                        },
+                        {
+                            "name": "BODY",
+                            "points": 2
+                        }
+                    ],
+                    "intensity": null,
+                    "photo": "images/capsule-banner/cocoa-truffle.png",
+                    "image": "images/capsule-picture/cocoa-truffle.png",
+                    "quantityPure": 3
+                }
+            ]
         },
         {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
-            "password": "1234567890",
-            "cart": []
-        },
-        {
-            "username": "gajofdd",
-            "email": "gajofdd@bananas",
-            "password": "12345678",
-            "cart": []
-        },
-        {
-            "username": "bananas",
-            "email": "abc@abc",
+            "username": "outro",
+            "email": "outro@outro",
             "password": "1234567890",
             "cart": []
         },

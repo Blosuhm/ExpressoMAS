@@ -95,70 +95,37 @@
       </div>
     </header>
     <main class="container">
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush" data-bind="foreach: locations">
         <li class="list-group-item">
           <div class="row">
-            <div class="col-8 fs-4">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
-              optio eum cupiditate aperiam modi incidunt.
+            <div class="col-8 fs-3 d-flex flex-column">
+              <h1 class="fw-bold" data-bind="text:name"></h1>
+              <a
+                class="fw-semibold fs-3"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-bind="attr: {href: `https://www.google.com/maps/dir/?api=1&destination=${address}`}, text: address"
+              ></a>
+              <p class="" data-bind="text: description"></p>
+              <span
+                class="mt-auto text-muted small"
+                data-bind="text: `Contact: ${contact}`"
+              ></span>
             </div>
             <div class="p-0 col-4 square">
-              <img
-                class="rounded h-100"
-                src="../images/c_photos/cocoa_truffle.png"
-                alt="location image"
-              />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                data-bind="attr: {href: `https://www.google.com/maps/place/${address}`}"
+              >
+                <img
+                  class="rounded h-100"
+                  data-bind="attr: {src: image}"
+                  alt="location image"
+                />
+              </a>
             </div>
           </div>
-          <div class="text-muted">Lorem ipsum dolor sit amet.</div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-8 fs-4">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
-              optio eum cupiditate aperiam modi incidunt.
-            </div>
-            <div class="p-0 col-4 square">
-              <img
-                class="rounded h-100"
-                src="../images/c_photos/cocoa_truffle.png"
-                alt="location image"
-              />
-            </div>
-          </div>
-          <div class="text-muted">Lorem ipsum dolor sit amet.</div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-8 fs-4">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
-              optio eum cupiditate aperiam modi incidunt.
-            </div>
-            <div class="p-0 col-4 square">
-              <img
-                class="rounded h-100"
-                src="../images/c_photos/cocoa_truffle.png"
-                alt="location image"
-              />
-            </div>
-          </div>
-          <div class="text-muted">Lorem ipsum dolor sit amet.</div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-8 fs-4">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit
-              optio eum cupiditate aperiam modi incidunt.
-            </div>
-            <div class="p-0 col-4 square">
-              <img
-                class="rounded h-100"
-                src="../images/c_photos/cocoa_truffle.png"
-                alt="location image"
-              />
-            </div>
-          </div>
-          <div class="text-muted">Lorem ipsum dolor sit amet.</div>
         </li>
       </ul>
     </main>
