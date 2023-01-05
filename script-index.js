@@ -7,17 +7,6 @@ function ViewModel() {
   self.coffees = ko.observableArray([]);
   self.totalPrice = ko.observable(0);
 
-  if (!localStorage.getItem("preload-first-time")) {
-    localStorage.setItem("preload-first-time", true);
-    localStorage.setItem("loggedIn", 0);
-    localStorage.setItem("cart", JSON.stringify([]));
-    ajaxHelper("coffee-data.json", "GET").done(function (data) {
-      localStorage.setItem("accounts", JSON.stringify(data.accounts));
-      location.reload();
-    });
-  }
-  self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-
   ajaxHelper("coffee-data.json", "GET").done(function (data) {
     console.log(data);
     // Modify the data
@@ -57,15 +46,30 @@ function ViewModel() {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
+  //* End Internal Functions
+
   //! if logged in
+
+  if (!localStorage.getItem("preload-first-time")) {
+    localStorage.setItem("preload-first-time", true);
+    localStorage.setItem("loggedIn", 0);
+    localStorage.setItem("cart", JSON.stringify([]));
+    ajaxHelper("coffee-data.json", "GET").done(function (data) {
+      localStorage.setItem("accounts", JSON.stringify(data.accounts));
+      location.reload();
+    });
+  }
   self.loggedIn = ko.observable(null);
   self.userName = ko.observable("");
   self.cart = ko.observableArray([]);
+  self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
   self.logOut = function () {
     localStorage.setItem("loggedIn", undefined);
     location.reload();
   };
 
+  //* Cart functions
   self.addToCart = function (item) {
     console.log(`Adding ${item.name} to cart`);
     if (self.cart().includes(item)) {
@@ -100,13 +104,6 @@ function ViewModel() {
 
     self.accounts[self.loggedIn()].cart = self.cart();
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
-
-    // ajaxHelper("add-to-cart", "POST", {
-    //   id: self.loggedIn(),
-    //   cart: self.cart(),
-    // }).done(function () {
-    //   console.log("Removed from cart");
-    // });
   };
 
   //* Quantity

@@ -98,9 +98,14 @@
       <ul class="list-group list-group-flush" data-bind="foreach: locations">
         <li class="list-group-item">
           <div class="row">
-            <div class="col-8 fs-4 d-flex flex-column">
+            <div class="col-8 fs-3 d-flex flex-column">
               <h1 class="fw-bold" data-bind="text:name"></h1>
-              <h3 class="fw-semibold text-muted" data-bind="text: address"></h3>
+              <a
+                class="fw-semibold fs-3"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-bind="attr: {href: `https://www.google.com/maps/dir/?api=1&destination=${address}`}, text: address"
+              ></a>
               <p class="" data-bind="text: description"></p>
               <span
                 class="mt-auto text-muted small"
@@ -109,6 +114,8 @@
             </div>
             <div class="p-0 col-4 square">
               <a
+                target="_blank"
+                rel="noopener noreferrer"
                 data-bind="attr: {href: `https://www.google.com/maps/place/${address}`}"
               >
                 <img
