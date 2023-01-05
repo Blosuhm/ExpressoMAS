@@ -2,9 +2,8 @@ function ViewModel() {
   const self = this;
   self.email = ko.observable();
   self.password = ko.observable();
-  self.accounts = ko.observableArray(
-    JSON.stringify(localStorage.getItem("accounts"))
-  );
+  self.accounts = JSON.parse(localStorage.getItem("accounts"));
+
   self.login = function () {
     let user = self.accounts.find((account) => account.email == self.email());
     let index = self.accounts.findIndex(

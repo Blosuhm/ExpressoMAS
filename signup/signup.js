@@ -1,12 +1,11 @@
 function ViewModel() {
   const self = this;
-  self.username = ko.observable();
-  self.password = ko.observable();
-  self.confirmPassword = ko.observable();
-  self.email = ko.observable();
-  self.accounts = ko.observableArray(
-    JSON.parse(localStorage.getItem("accounts"))
-  );
+  self.username = ko.observable("");
+  self.password = ko.observable("");
+  self.confirmPassword = ko.observable("");
+  self.email = ko.observable("");
+  self.accounts = JSON.parse(localStorage.getItem("accounts"));
+
   self.submitForm = function () {
     if (validation()) {
       // check if user is taken or email is taken
@@ -97,6 +96,6 @@ function ViewModel() {
 }
 
 $().ready(function () {
-  console.log("ViewModal loaded");
-  ko.applyBindings(new ViewModal());
+  console.log("ViewModel loaded");
+  ko.applyBindings(new ViewModel());
 });
