@@ -3,70 +3,10 @@
     "cart": [],
     "accounts": [
         {
-            "username": "Blosuhmsju",
-            "email": "igdebugehoigd@ueuhgoi",
-            "password": "1234567890",
-            "cart": []
-        },
-        {
-            "username": "Blosuhm",
-            "email": "zakhar.kruptsala@gmail.com",
+            "username": "Utilizador",
+            "email": "utilizador@email.com",
             "password": "1234567890",
             "cart": [
-                {
-                    "name": "BUENOS AIRES LUNGO",
-                    "description": "DISTINCT DELIGHT SWEET & CEREAL",
-                    "price": 0.49,
-                    "stats": [
-                        {
-                            "name": "BITTERNESS",
-                            "points": 1
-                        },
-                        {
-                            "name": "ACIDITY",
-                            "points": 2
-                        },
-                        {
-                            "name": "ROASTINESS",
-                            "points": 1
-                        },
-                        {
-                            "name": "BODY",
-                            "points": 1
-                        }
-                    ],
-                    "intensity": 4,
-                    "photo": "images/capsule-banner/buenos-aires-lungo.png",
-                    "image": "images/capsule-picture/buenos-aires-lungo.png",
-                    "quantityPure": 2
-                },
-                {
-                    "name": "VANILLA \u00c9CLAIR",
-                    "description": "VANILLA ECLAIR FLAVOURED COFFEE",
-                    "price": 0.55,
-                    "stats": [
-                        {
-                            "name": "BITTERNESS",
-                            "points": 1
-                        },
-                        {
-                            "name": "ACIDITY",
-                            "points": 1
-                        },
-                        {
-                            "name": "ROASTINESS",
-                            "points": 2
-                        },
-                        {
-                            "name": "BODY",
-                            "points": 2
-                        }
-                    ],
-                    "intensity": null,
-                    "photo": "images/capsule-banner/vanilla-eclair.png",
-                    "image": "images/capsule-picture/vanilla-eclair.png",
-                    "quantityPure": 5
-                },
                 {
                     "name": "COCOA TRUFFLE",
                     "description": "DARK CHOCOLATE TRUFFLE FLAVOURED COFFEE",
@@ -92,73 +32,13 @@
                     "intensity": null,
                     "photo": "images/capsule-banner/cocoa-truffle.png",
                     "image": "images/capsule-picture/cocoa-truffle.png",
-                    "quantityPure": 1
-                },
-                {
-                    "name": "ARPEGGIO",
-                    "description": "INTENSE AND CREAMY COFFEE",
-                    "price": 0.44,
-                    "stats": [
-                        {
-                            "name": "BITTERNESS",
-                            "points": 4
-                        },
-                        {
-                            "name": "ACIDITY",
-                            "points": 2
-                        },
-                        {
-                            "name": "ROASTINESS",
-                            "points": 4
-                        },
-                        {
-                            "name": "BODY",
-                            "points": 4
-                        }
-                    ],
-                    "intensity": 9,
-                    "photo": "images/capsule-banner/arpeggio.png",
-                    "image": "images/capsule-picture/arpeggio.png",
-                    "quantityPure": 1
-                },
-                {
-                    "name": "RISTRETTO",
-                    "description": "POWERFUL AND CONTRASTING",
-                    "price": 0.44,
-                    "stats": [
-                        {
-                            "name": "BITTERNESS",
-                            "points": 4
-                        },
-                        {
-                            "name": "ACIDITY",
-                            "points": 3
-                        },
-                        {
-                            "name": "ROASTINESS",
-                            "points": 4
-                        },
-                        {
-                            "name": "BODY",
-                            "points": 4
-                        }
-                    ],
-                    "intensity": 10,
-                    "photo": "images/capsule-banner/ristretto.png",
-                    "image": "images/capsule-picture/ristretto.png",
-                    "quantityPure": 1
+                    "quantityPure": 3
                 }
             ]
         },
         {
-            "username": "gajofdd",
-            "email": "gajofdd@bananas",
-            "password": "12345678",
-            "cart": []
-        },
-        {
-            "username": "bananas",
-            "email": "abc@abc",
+            "username": "outro",
+            "email": "outro@outro",
             "password": "1234567890",
             "cart": []
         }

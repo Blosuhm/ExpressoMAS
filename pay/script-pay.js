@@ -95,6 +95,7 @@ function ViewModel() {
       data: data ? JSON.stringify(data) : null,
       error: function (jqXHR, textStatus, errorThrown) {
         console.log("AJAX Call[" + uri + "] Fail...");
+        console.log(jqXHR);
         self.error(errorThrown);
       },
     });
@@ -109,8 +110,9 @@ function ViewModel() {
   self.userName = ko.observable("");
   self.cart = ko.observableArray([]);
   self.logOut = function () {
-    ajaxHelper("logout", "POST");
-    window.location.href = "index.html";
+    ajaxHelper("logout", "POST").done(function () {
+      window.location.href = "../index.html";
+    });
   };
 
   self.clearCart = function () {

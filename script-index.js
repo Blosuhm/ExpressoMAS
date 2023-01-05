@@ -7,6 +7,17 @@ function ViewModel() {
   self.coffees = ko.observableArray([]);
   self.totalPrice = ko.observable(0);
 
+  if (!localStorage.getItem("preload-first-time")) {
+    localStorage.setItem("preload-first-time", true);
+    localStorage.setItem("loggedIn", 0);
+    localStorage.setItem("cart", JSON.stringify([]));
+    ajaxHelper("coffee-data.json", "GET").done(function (data) {
+      localStorage.setItem("accounts", JSON.stringify(data.accounts));
+      location.reload();
+    });
+  }
+  self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
   ajaxHelper("coffee-data.json", "GET").done(function (data) {
     console.log(data);
     // Modify the data
@@ -51,9 +62,11 @@ function ViewModel() {
   self.userName = ko.observable("");
   self.cart = ko.observableArray([]);
   self.logOut = function () {
-    ajaxHelper("logout", "POST").done(function () {
-      window.location.href = "index.html";
-    });
+    localStorage.setItem("loggedIn", undefined);
+    location.reload();
+    // ajaxHelper("logout", "POST").done(function () {
+    //   window.location.href = "index.html";
+    // });
   };
 
   self.addToCart = function (item) {
@@ -69,12 +82,14 @@ function ViewModel() {
       self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
     );
 
-    ajaxHelper("add-to-cart", "POST", {
-      id: self.loggedIn(),
-      cart: self.cart(),
-    }).done(function () {
-      console.log("Added to cart");
-    });
+    self.accounts[self.loggedIn()].cart = self.cart();
+    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    // ajaxHelper("add-to-cart", "POST", {
+    //   id: self.loggedIn(),
+    //   cart: self.cart(),
+    // }).done(function () {
+    //   console.log("Added to cart");
+    // });
 
     console.log(self.cart());
   };
@@ -82,12 +97,14 @@ function ViewModel() {
     console.log("Clearing cart");
     self.cart([]);
     self.totalPrice(0);
-    ajaxHelper("add-to-cart", "POST", {
-      id: self.loggedIn(),
-      cart: self.cart(),
-    }).done(function () {
-      console.log("Cart cleared");
-    });
+    self.accounts[self.loggedIn()].cart = self.cart();
+    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    // ajaxHelper("add-to-cart", "POST", {
+    //   id: self.loggedIn(),
+    //   cart: self.cart(),
+    // }).done(function () {
+    //   console.log("Cart cleared");
+    // });
   };
   self.removeFromCart = function (item) {
     console.log(`Removing ${item.name} from cart`);
@@ -96,12 +113,15 @@ function ViewModel() {
       self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
     );
 
-    ajaxHelper("add-to-cart", "POST", {
-      id: self.loggedIn(),
-      cart: self.cart(),
-    }).done(function () {
-      console.log("Removed from cart");
-    });
+    self.accounts[self.loggedIn()].cart = self.cart();
+    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+
+    // ajaxHelper("add-to-cart", "POST", {
+    //   id: self.loggedIn(),
+    //   cart: self.cart(),
+    // }).done(function () {
+    //   console.log("Removed from cart");
+    // });
   };
 
   //* Quantity
@@ -113,10 +133,12 @@ function ViewModel() {
         self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
       );
 
-      ajaxHelper("add-to-cart", "POST", {
-        id: self.loggedIn(),
-        cart: self.cart(),
-      });
+      self.accounts[self.loggedIn()].cart = self.cart();
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+      // ajaxHelper("add-to-cart", "POST", {
+      //   id: self.loggedIn(),
+      //   cart: self.cart(),
+      // });
     }
     console.log(self.cart()[i].quantity());
   };
@@ -129,29 +151,32 @@ function ViewModel() {
       );
     }
 
-    ajaxHelper("add-to-cart", "POST", {
-      id: self.loggedIn(),
-      cart: self.cart(),
-    });
+    self.accounts[self.loggedIn()].cart = self.cart();
+    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    // ajaxHelper("add-to-cart", "POST", {
+    //   id: self.loggedIn(),
+    //   cart: self.cart(),
+    // });
   };
 
-  ajaxHelper("server/data.json", "GET").done(function (data) {
-    self.loggedIn(data.loggedIn);
-    self.cart(data.cart);
-    if (self.loggedIn() !== null) {
-      self.userName(data.accounts[self.loggedIn()].username);
-      let cart = data.accounts[self.loggedIn()].cart;
-      cart.forEach((item) => {
-        item.quantity = ko.observable(item.quantityPure);
-      });
-      self.cart(data.accounts[self.loggedIn()].cart);
-      console.log("Logged in");
-    }
-    self.totalPrice(
-      self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
-    );
-    console.log(data);
-  });
+  //* login
+  self.loggedIn(localStorage.getItem("loggedIn"));
+  console.log("initial cart", JSON.parse(localStorage.getItem("cart")));
+  self.cart(JSON.parse(localStorage.getItem("cart")));
+  if (self.loggedIn() !== null) {
+    self.userName(self.accounts[self.loggedIn()].username);
+    let cart = self.accounts[self.loggedIn()].cart;
+
+    console.log("logged in cart:", cart);
+    cart.forEach((item) => {
+      item.quantity = ko.observable(item.quantityPure);
+    });
+    self.cart(cart);
+    console.log("Logged in");
+  }
+  self.totalPrice(
+    self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
+  );
 }
 
 $().ready(function () {
