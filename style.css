@@ -101,3 +101,8 @@ input.arrow-hidden[type="number"] {
 .square {
   aspect-ratio: 1/1;
 }
+
+.nav-item.text-end {
+  color: rgb(96, 13, 13);
+  font-size:large
+}
