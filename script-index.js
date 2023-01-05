@@ -5,7 +5,6 @@ function ViewModel() {
   const minQuantity = 1;
   self.error = ko.observable("");
   self.coffees = ko.observableArray([]);
-  self.totalPrice = ko.observable(0);
 
   ajaxHelper("coffee-data.json", "GET").done(function (data) {
     console.log(data);
@@ -48,8 +47,6 @@ function ViewModel() {
 
   //* End Internal Functions
 
-  //! if logged in
-
   if (!localStorage.getItem("preload-first-time")) {
     localStorage.setItem("preload-first-time", true);
     localStorage.setItem("loggedIn", 0);
@@ -62,13 +59,10 @@ function ViewModel() {
   self.loggedIn = ko.observable(null);
   self.userName = ko.observable("");
   self.cart = ko.observableArray([]);
+  self.totalPrice = ko.observable(0);
   self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
-  self.logOut = function () {
-    localStorage.setItem("loggedIn", undefined);
-    location.reload();
-  };
-
+  //! If logged in
   //* Cart functions
   self.addToCart = function (item) {
     console.log(`Adding ${item.name} to cart`);
@@ -106,7 +100,7 @@ function ViewModel() {
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
   };
 
-  //* Quantity
+  //* Quantity functions
   self.add = function (i) {
     if (self.cart()[i].quantity() < maxQuantity) {
       self.cart()[i].quantity(self.cart()[i].quantity() + 1);
@@ -132,9 +126,10 @@ function ViewModel() {
     self.accounts[self.loggedIn()].cart = self.cart();
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
   };
+  //* End Quantity and Cart functions
 
-  //* login
-  self.loggedIn(localStorage.getItem("loggedIn"));
+  //* Login and Logout
+  self.loggedIn(JSON.parse(localStorage.getItem("loggedIn")));
   console.log("initial cart", JSON.parse(localStorage.getItem("cart")));
   self.cart(JSON.parse(localStorage.getItem("cart")));
   if (self.loggedIn() !== null) {
@@ -151,6 +146,11 @@ function ViewModel() {
   self.totalPrice(
     self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
   );
+  self.logOut = function () {
+    localStorage.setItem("loggedIn", JSON.stringify(null));
+    location.reload();
+  };
+  //* End Login and Logout
 }
 
 $().ready(function () {
