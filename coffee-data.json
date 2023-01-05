@@ -203,33 +203,29 @@
     }
   ],
 
-  "location": [
+  "locations": [
     {
       "name": "EXPRESSO!",
       "address": "R. dos Combatentes da Grande Guerra, 3810-128 Aveiro",
-      "image": "",
       "contact": "232 533 187",
       "description": "This is one of our coffee shops! As you would expect, we have everything a coffee fan would like. If you are one, then this is the perfect place for you. Come and take a visit!"
     },
     {
       "name": "PORTA DO CAFÉ",
       "address": "R. de Luís Cipriano 23, 3810-128 Aveiro",
-      "image": "",
       "contact": "930 533 187",
       "description": "Expresso! coffee partner is located at R. de Luís Cipriano 23, Aveiro, PT, 3810-128. The establishment is located near the Forum of Aveiro and is modern with affordable prices. It offers good internet quality and is a quiet place to work."
     },
     {
       "name": "MILAGRE COFFEE SHOP",
       "address": "Rua do lavadouro, No:6, 3800-208 Aveiro",
-      "image": "",
-      "contact": "913220888",
+      "contact": "913 220 888",
       "description": "Expresso! coffee partner is located at Rua do lavadouro, No:6, 3800-208 Aveiro. The establishment is located near the Fábrica dos Ovos, a well known place in Aveiro. The space is quiet and peaceful, which provides a great place to work."
     },
     {
       "name": "MARAVILHAS",
       "address": "Praça do Mercado n.º 4, 3800-223 Aveiro",
-      "image": "",
-      "contact": "234062720",
+      "contact": "234 062 720",
       "description": "Expresso! coffee partner is located at Praça do Mercado n.º 4, 3800-223 Aveiro. The establishment is pretty close to Forum Aveiro. The space is quiet and peaceful. This establishment also serves meals, so it's a great place for you to have lunch or dinner with a group of friends of yours. Highly recommendable by others users."
     }
   ],

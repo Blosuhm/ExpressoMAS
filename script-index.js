@@ -64,9 +64,6 @@ function ViewModel() {
   self.logOut = function () {
     localStorage.setItem("loggedIn", undefined);
     location.reload();
-    // ajaxHelper("logout", "POST").done(function () {
-    //   window.location.href = "index.html";
-    // });
   };
 
   self.addToCart = function (item) {
@@ -84,12 +81,6 @@ function ViewModel() {
 
     self.accounts[self.loggedIn()].cart = self.cart();
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
-    // ajaxHelper("add-to-cart", "POST", {
-    //   id: self.loggedIn(),
-    //   cart: self.cart(),
-    // }).done(function () {
-    //   console.log("Added to cart");
-    // });
 
     console.log(self.cart());
   };
@@ -99,12 +90,6 @@ function ViewModel() {
     self.totalPrice(0);
     self.accounts[self.loggedIn()].cart = self.cart();
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
-    // ajaxHelper("add-to-cart", "POST", {
-    //   id: self.loggedIn(),
-    //   cart: self.cart(),
-    // }).done(function () {
-    //   console.log("Cart cleared");
-    // });
   };
   self.removeFromCart = function (item) {
     console.log(`Removing ${item.name} from cart`);
@@ -135,10 +120,6 @@ function ViewModel() {
 
       self.accounts[self.loggedIn()].cart = self.cart();
       localStorage.setItem("accounts", JSON.stringify(self.accounts));
-      // ajaxHelper("add-to-cart", "POST", {
-      //   id: self.loggedIn(),
-      //   cart: self.cart(),
-      // });
     }
     console.log(self.cart()[i].quantity());
   };
@@ -153,10 +134,6 @@ function ViewModel() {
 
     self.accounts[self.loggedIn()].cart = self.cart();
     localStorage.setItem("accounts", JSON.stringify(self.accounts));
-    // ajaxHelper("add-to-cart", "POST", {
-    //   id: self.loggedIn(),
-    //   cart: self.cart(),
-    // });
   };
 
   //* login
