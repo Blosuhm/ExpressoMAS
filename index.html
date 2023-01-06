@@ -83,15 +83,29 @@
             <i class="fa fa-bars" aria-hidden="true"></i>
           </button>
           <div class="d-flex align-items-center ms-3" style="height: 2rem">
-            <a href="index.html" class="h-100"
+            <a href="#" class="h-100"
               ><img
                 src="images/logo/logo_transparent_text.png"
                 alt="Logo Name"
                 class="h-100 w-auto"
             /></a>
           </div>
+          <button
+            class="btn bg-white ms-auto me-5 position-relative"
+            type="button"
+            data-bind="attr: { disabled: cart().length === 0 }"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cart"
+          >
+            <i class="fs-4 fa fa-shopping-cart" aria-hidden="true"></i>
+            <span
+              class="position-absolute translate-middle badge rounded-pill bg-danger"
+              style="font-size: 0.7rem; top: 0.1rem; right: -1.3rem"
+              data-bind="text: cart().length"
+            ></span>
+          </button>
           <!-- ko if: loggedIn() === null -->
-          <div class="ms-auto me-3">
+          <div class="me-3">
             <a href="login/login.html"
               ><button
                 type="button"
@@ -167,15 +181,6 @@
         class="cart d-flex justify-content-end my-3 gap-3"
         style="margin-right: 11rem"
       >
-        <button
-          class="btn btn-success"
-          type="button"
-          data-bind="attr: { disabled: cart().length === 0 }"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#cart"
-        >
-          <i class="fs-4 fa fa-shopping-cart" aria-hidden="true"></i>
-        </button>
         <button class="btn btn-danger" data-bind="click: clearCart">
           Clear
         </button>
@@ -186,6 +191,7 @@
           tabindex="-1"
           id="cart"
           aria-labelledby="offcanvasLabel"
+          style="width: 36rem"
         >
           <div class="offcanvas-header">
             <h2
@@ -223,7 +229,7 @@
                 style="height: 13rem"
               >
                 <div
-                  class="d-flex w-100 h-100 justify-content-between py-4 align-items-center"
+                  class="d-flex w-100 h-100 justify-content-between py-4 align-items-center flex-grow-0"
                 >
                   <span
                     class="fw-bold"
@@ -258,7 +264,7 @@
                     data-bind="text: price + '€' "
                   ></span>
                   <button
-                    class="border-0 btn"
+                    class="border-0 p-0 btn"
                     data-bind="click: function(){$root.removeFromCart($data)}"
                   >
                     <i class="fa fa-times-circle fs-4" aria-hidden="true"></i>
