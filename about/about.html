@@ -7,21 +7,385 @@
     <link rel="icon" href="../images/logo/favicon.png" type="image/png" />
     <link
       rel="stylesheet"
-      href="libs/bootstrap-5.2.2-dist/css/bootstrap.min.css"
+      href="../libs/bootstrap-5.2.2-dist/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
-      href="libs/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="../libs/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="../style.css" />
-    <script src="libs/jquery/jquery-3.6.1.js"></script>
-    <script src="libs/knockout-3.5.1.js"></script>
+    <script src="../libs/jquery/jquery-3.6.1.js"></script>
+    <script src="../libs/knockout-3.5.1.js"></script>
     <title>Expresso! - Locations</title>
   </head>
   <body>
-    <script src="libs/popper.min.js"></script>
-    <script src="libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
-    <script src="libs/knockout-3.5.1.js"></script>
+    <nav
+      id="sidebar"
+      class="offcanvas offcanvas-start bg-dark rounded ms-3 my-3"
+      style="width: 250px"
+      aria-label="sidebar"
+    >
+      <a href="../"
+        ><img
+          class="rounded-top"
+          style="padding-bottom: 2rem"
+          src="../images/logo/logo.png"
+          alt="Logo"
+      /></a>
+      <div class="offcanvas-body p-0">
+        <ul class="nav flex-column">
+          <li
+            class="nav-item btn btn-dark active rounded-0 text-start border-0"
+          >
+            <a
+              class="nav-link text-light active p-4"
+              aria-current="page"
+              href=""
+              >Home</a
+            >
+          </li>
+          <li class="nav-item btn btn-dark rounded-0 text-start border-0">
+            <a
+              class="nav-link text-light p-4"
+              href="../locations/locations.html"
+              >Locations</a
+            >
+          </li>
+          <li class="nav-item btn btn-dark rounded-0 text-start border-0">
+            <a class="nav-link text-light p-4" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header class="position-sticky top-0 w-100" style="box-sizing: content-box">
+      <div class="position-relative w-100" style="box-sizing: content-box">
+        <div
+          id="navbar"
+          class="d-flex justify-content-around align-items-center px-0 position-sticky top-0 start-0 end-0 mx-auto w-100 active"
+          style="max-width: 1920px"
+          aria-label="navigation"
+        >
+          <button
+            type="button"
+            class="bg-transparent text-dark border-0 ms-3 d-flex align-items-center"
+            data-bs-toggle="offcanvas"
+            href="#sidebar"
+            style="font-size: 2rem"
+          >
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="d-flex align-items-center ms-3" style="height: 2rem">
+            <a href="../" class="h-100"
+              ><img
+                src="../images/logo/logo_transparent_text.png"
+                alt="Logo Name"
+                class="h-100 w-auto"
+            /></a>
+          </div>
+          <button
+            class="btn bg-white border-0 ms-auto me-5 position-relative"
+            type="button"
+            data-bind="attr: { disabled: cart().length === 0 }"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cart"
+          >
+            <i class="fs-4 fa fa-shopping-cart" aria-hidden="true"></i>
+            <span
+              class="position-absolute translate-middle badge rounded-pill bg-danger"
+              style="font-size: 0.7rem; top: 0.1rem; right: -1.3rem"
+              data-bind="visible:cart().length !== 0, text: cart().length"
+            ></span>
+          </button>
+          <!-- ko if: loggedIn() === null -->
+          <div class="me-3">
+            <a href="../login/login.html"
+              ><button
+                type="button"
+                class="btn rounded-pill my-btn"
+                style="background: rgb(255, 255, 255)"
+              >
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Log in
+              </button></a
+            >
+
+            <a href="../signup/signup.html"
+              ><button type="button" class="btn btn-dark rounded-pill my-btn">
+                Sign up
+              </button></a
+            >
+          </div>
+          <!--/ko-->
+
+          <!-- ko ifnot: loggedIn() === null -->
+          <div class="me-3 d-flex align-items-center">
+            <span
+              class="text-white fs-1 me-3 bg-black rounded-1"
+              data-bind="text: userName"
+            ></span>
+            <button
+              type="button"
+              class="btn rounded-pill my-btn"
+              style="background: rgb(255, 255, 255)"
+              data-bs-toggle="modal"
+              data-bs-target="#logoutModal"
+            >
+              Log out
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- /ko -->
+        </div>
+      </div>
+    </header>
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body d-flex justify-content-center flex-column align-items-center"
+          >
+            <h3>Are you sure?</h3>
+            <div class="d-flex justify-content-center gap-3">
+              <button class="btn shadow" data-bind="click: logOut">Yes</button>
+              <button
+                class="btn shadow bg-black text-white"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cart -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="cart"
+      aria-labelledby="offcanvasLabel"
+      style="width: 36rem"
+    >
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title text-muted fw-semibold" id="offcanvasLabel">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i> - Your Cart
+        </h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <a href="pay/pay.html"
+          ><button class="btn btn-success">Proceed to payment</button></a
+        >
+        <div class="d-flex my-4">
+          <h5 class="card-subtitle text-muted">Total:</h5>
+          <h5
+            class="card-subtitle text-muted ms-auto fw-bolder"
+            data-bind="text: totalPrice().toFixed(2) + ' €'"
+          ></h5>
+        </div>
+
+        <ul
+          id="cartList"
+          class="list-group rounded-0 gap-3"
+          data-bind="foreach:cart"
+        >
+          <li
+            class="list-group-item border-end-0 border-start-0"
+            style="height: 13rem"
+          >
+            <div
+              class="d-flex w-100 h-100 justify-content-between py-4 align-items-center flex-grow-0"
+            >
+              <span
+                class="fw-bold"
+                data-bind="text: name"
+                style="width: 15ch"
+              ></span>
+
+              <div class="d-flex quantity">
+                <button
+                  data-bind="click: function() {$root.subtract($index())}, attr:{disabled: quantity() <= 1}"
+                  class="btn rounded-circle btn-secondary border-0 subtract"
+                >
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+                <input
+                  class="form-control mx-2 text-center arrow-hidden"
+                  type="text"
+                  name="quantity"
+                  data-bind="textInput: quantity(), value : quantity, valueUpdate: 'input', event: {input: function() {valueChange($index())}}"
+                  style="width: 3rem"
+                />
+                <button
+                  data-bind="click: function() {$root.add($index())}, attr:{disabled: quantity() >= 15}"
+                  class="btn rounded-circle btn-secondary border-0 add"
+                >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <span class="fw-semibold" data-bind="text: price + '€' "></span>
+              <button
+                class="border-0 p-0 btn"
+                data-bind="click: function(){$root.removeFromCart($data)}"
+              >
+                <i class="fa fa-times-circle fs-4" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <main class="container">
+      <h1 class="fw-bold">About Us</h1>
+      <p class="fs-4">
+        Expresso! is an initiative that was launched in 2022, as part of the
+        Modeling and System Analysis classes. A group of students decided to
+        develop a website, supported by a website, that would allow people like
+        you to enjoy an excellent coffee at any time. Thanks to the help of
+        Nespresso, one of the big names in the capsule coffee market, this
+        initiative has gone from vision to reality and we are very happy to
+        provide you with our services today. Expresso! is a home delivery
+        service for Nespresso coffee. Expresso! makes the most iconic capsules
+        and also the Nespresso news available on the website, which are
+        available at partner establishments and Expresso! cafes near you. In
+        addition, we also present a set of locations that have access to our
+        service, along with details about the space in question.
+      </p>
+      <h2 class="fw-semibold">How do we work?</h2>
+      <p class="fs-4">
+        Throughout the country, there are establishments that are known for the
+        wide variety of coffee they serve. With Expresso!, that variety can be
+        increased and made available to a larger area. We take care of all the
+        logistics like stock maintenance, deliveries and you? Well, you just
+        have to choose where, when and what you want.
+      </p>
+      <p class="fs-4">
+        You just need to create an account, choose your favorite coffee, wait
+        for the delivery and voila! Your favorite coffee has arrived.
+      </p>
+      <h2 class="fw-semibold">How do I order coffee for my location?</h2>
+      <ul class="fs-4">
+        <li>
+          <p>
+            First, you need to create an Expresso! account To do this, simply go
+            to the Sign In tab and fill in the spaces with the necessary
+            information.
+          </p>
+        </li>
+        <li>
+          <p>
+            Next comes the fun part, let's choose your coffee! On the main page,
+            if you scroll down (drag) you can see the wide variety of coffee
+            capsules our website offers.
+          </p>
+          <p>
+            If any catch your interest, you just need to click on () and then
+            you will be presented with a set of information and details about
+            the chosen capsule to help you with your choice.
+          </p>
+        </li>
+        <li>
+          <p>Let's confirm the order!</p>
+          <p>
+            Once the order is complete, we need to be sure of everything you
+            want to order. To do this, you will be presented with a page with
+            all the items you added to your cart and their base price.
+          </p>
+          <p>
+            Finally, a delivery fee will be added to the total price, depending
+            on the location you set for your delivery.
+          </p>
+          <p>
+            Confirm the payment using your preferred method, MBWay or payment at
+            the time of delivery, in cash.
+          </p>
+        </li>
+        <li><p>Enjoy your coffee and thank you for your preference!</p></li>
+      </ul>
+
+      <p class="text-muted fs-5">
+        If you have any more doubts, please do not hesitate to ask for help at
+        the following email:
+        <a href="mailto:ExpressoCoffees@gmail.com">ExpressoCoffees@gmail.com</a>
+      </p>
+    </main>
+    <footer>
+      <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-6">
+              <a href="#">
+                <img
+                  src="../images/logo/logo-transparent-text-white.png"
+                  class="footer-logo"
+                  width="100%"
+                  alt=""
+                />
+              </a>
+              <p class="copyright">
+                <small>&copy; 2023</small>
+              </p>
+            </div>
+            <div class="col-3 d-md-block d-none">
+              <h3>About</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Home</a></li>
+                <li><a href="locations/locations.html">Locations</a></li>
+                <li>
+                  <a href="#">About us</a>
+                </li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="col-3 d-md-block d-none">
+              <h3>Important Links</h3>
+              <ul class="list-unstyled links">
+                <li><a href="https://www.ua.pt/">Universidade de Aveiro</a></li>
+                <li>
+                  <a href="https://www.ua.pt/pt/uc/12315"
+                    >Modelação e Análise de Sistemas
+                  </a>
+                </li>
+                <li><a href="https://github.com/detiuaveiro">DETI - UA </a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-6">
+              <h3>Brought to you by:</h3>
+              <ul class="list-unstyled links">
+                <li>
+                  <a href="mailto:zakhar.kruptsala@ua.pt"
+                    >zakhar.kruptsala@ua.pt</a
+                  >&nbsp;&nbsp;&nbsp;<a
+                    class="me-5"
+                    href="https://github.com/Blosuhm"
+                    ><span class="fa fa-github"></span
+                  ></a>
+                </li>
+                <li>
+                  <a href="mailto:pmap@ua.pt">diogo.l.oliveira@ua.pt</a
+                  >&nbsp;&nbsp;&nbsp;<a class="me-5"></a>
+                </li>
+                <li>
+                  <a href="mailto:pmap@ua.pt">diogodomingues04@ua.pt</a
+                  >&nbsp;&nbsp;&nbsp;<a class="me-5"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../libs/popper.min.js"></script>
+    <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="../libs/knockout-3.5.1.js"></script>
     <script src="about.js"></script>
   </body>
 </html>
