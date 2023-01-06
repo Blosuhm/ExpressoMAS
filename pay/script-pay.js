@@ -12,6 +12,10 @@ function ViewModel() {
   self.cart = ko.observableArray([]);
   self.totalPrice = ko.observable(0);
   self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+  self.pay = function () {
+    localStorage.setItem("invoice", JSON.stringify(self.cart()));
+    window.location.href = "../success/success.html";
+  };
 
   //! If logged in
   //* Cart functions

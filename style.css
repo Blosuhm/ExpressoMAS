@@ -122,3 +122,7 @@ footer a {
 footer a:hover {
   color: hsl(0, 0%, 85%);
 }
+
+.table-fit {
+  height: 1px;
+}

@@ -19,22 +19,43 @@
     <title>Payment Successful</title>
   </head>
   <body>
-    <img
-          class="rounded-top"
-          style="padding-bottom: 2rem"
-          src="images/logo/logo.png"
-          alt="Logo"
-    />
     <main
       class="container my-auto mx-auto vh-100 d-flex flex-column justify-content-around align-items-center"
     >
-      <h1>Payment successful</h1>
-      <div
-        class="d-flex justify-content-center align-items-center fs-1"
-        style="height: 200px; width: 300px; border: solid 3px black"
+      <h1 class="text-muted fw-semibold">Payment successful</h1>
+      <table
+        class="w-50 table table-bordered border-dark"
+        aria-describedby="payment info"
       >
-        Your Order
-      </div>
+        <thead>
+          <tr>
+            <th>PRODUCT</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody class="wish" data-bind="foreach: invoice">
+          <tr class="border-0 w-100">
+            <td data-bind="text: name"></td>
+            <td data-bind="text: price + ' €'"></td>
+            <td data-bind="text: quantityPure"></td>
+            <td data-bind="text: quantityPure*price + ' €'"></td>
+          </tr>
+        </tbody>
+        <tr class="border-0" style="height: 12rem">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tfoot>
+          <tr>
+            <td colspan="3">FINAL PRICE</td>
+            <td data-bind="text: totalPrice() + ' €'"></td>
+          </tr>
+        </tfoot>
+      </table>
       <a href="../index.html">
         <button
           type="button"
@@ -48,6 +69,6 @@
     <script src="../libs/popper.min.js"></script>
     <script src="../libs/bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
     <script src="../libs/knockout-3.5.1.js"></script>
-    <script src="locations.js"></script>
+    <script src="success.js"></script>
   </body>
 </html>
