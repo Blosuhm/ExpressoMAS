@@ -126,3 +126,48 @@ footer a:hover {
 .table-fit {
   height: 1px;
 }
+
+/* jumping text start */
+.jumping-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jumping-text span {
+  position: relative;
+  font-size: 3rem;
+  font-weight: bold;
+  top: 20px;
+  display: inline-block;
+  animation: bounce 0.35s ease infinite alternate;
+}
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px #ccc, 0 2px #ccc, 0 3px #ccc, 0 4px #ccc, 0 5px #ccc,
+      0 6px #ccc, 0 7px #ccc, 0 8px #ccc, 0 9px #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+.jumping-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.jumping-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.jumping-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.jumping-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.jumping-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.jumping-text span:nth-child(7) {
+  animation-delay: 0.6s;
+}

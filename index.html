@@ -172,12 +172,21 @@
       </div>
     </div>
     <banner
-      class="banner d-flex align-items-center justify-content-center"
+      class="banner d-flex align-items-center justify-content-center position-relative"
       style="box-sizing: content-box"
     >
       <h1 class="fw-bold slogan">
         Your time is precious, let us handle the coffee
       </h1>
+      <div class="jumping-text">
+        <span>S</span>
+        <span>C</span>
+        <span>R</span>
+        <span>O</span>
+        <span>L</span>
+        <span>L</span>
+        <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+      </div>
     </banner>
     <!-- cart -->
     <div
@@ -199,9 +208,18 @@
         ></button>
       </div>
       <div class="offcanvas-body">
-        <a href="pay/pay.html"
-          ><button class="btn btn-success">Proceed to payment</button></a
-        >
+        <div class="d-flex justify-content-between">
+          <a href="pay/pay.html"
+            ><button class="btn btn-success">Proceed to payment</button></a
+          ><button
+            class="btn btn-danger"
+            data-bs-dismiss="offcanvas"
+            data-bind="click: clearCart"
+          >
+            Clear
+          </button>
+        </div>
+
         <div class="d-flex my-4">
           <h5 class="card-subtitle text-muted">Total:</h5>
           <h5
@@ -263,15 +281,6 @@
       </div>
     </div>
     <main class="container mt-3 mb-5">
-      <div
-        class="cart d-flex justify-content-end my-3 gap-3"
-        style="margin-right: 11rem"
-      >
-        <button class="btn btn-danger" data-bind="click: clearCart">
-          Clear
-        </button>
-        <div class="rounded-pill"></div>
-      </div>
       <div class="d-flex justify-content-center">
         <div
           class="row mx-0 row-cols-1 row-cols-lg-2 row-cols-xl-3 w-75"

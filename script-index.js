@@ -182,7 +182,7 @@ $().ready(function () {
   console.log("ViewModel applied");
 
   $(window).scroll(function () {
-    if ($(this).scrollTop() != 0) {
+    if ($(this).scrollTop() !== 0) {
       $("#navbar").addClass("active");
     } else {
       $("#navbar").removeClass("active");

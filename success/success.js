@@ -20,8 +20,5 @@ $(function () {
 });
 
 $(window).on("beforeunload", function (e) {
-  if (performance.navigation.type === 1) {
-    return;
-  }
   localStorage.setItem("invoice", null);
 });

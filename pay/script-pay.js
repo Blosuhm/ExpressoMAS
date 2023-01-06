@@ -14,6 +14,12 @@ function ViewModel() {
   self.accounts = JSON.parse(localStorage.getItem("accounts")) || [];
   self.pay = function () {
     localStorage.setItem("invoice", JSON.stringify(self.cart()));
+    if (self.loggedIn() !== null) {
+      self.accounts[self.loggedIn()].cart = [];
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    } else {
+      localStorage.setItem("cart", JSON.stringify([]));
+    }
     window.location.href = "../success/success.html";
   };
 

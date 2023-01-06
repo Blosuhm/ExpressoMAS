@@ -35,7 +35,7 @@
       <div class="offcanvas-body p-0">
         <ul class="nav flex-column">
           <li class="nav-item btn btn-dark rounded-0 text-start border-0">
-            <a class="nav-link text-light p-4" aria-current="page" href=""
+            <a class="nav-link text-light p-4" aria-current="page" href="../"
               >Home</a
             >
           </li>
@@ -182,9 +182,17 @@
         ></button>
       </div>
       <div class="offcanvas-body">
-        <a href="pay/pay.html"
-          ><button class="btn btn-success">Proceed to payment</button></a
-        >
+        <div class="d-flex justify-content-between">
+          <a href="../pay/pay.html"
+            ><button class="btn btn-success">Proceed to payment</button></a
+          ><button
+            class="btn btn-danger"
+            data-bs-dismiss="offcanvas"
+            data-bind="click: clearCart"
+          >
+            Clear
+          </button>
+        </div>
         <div class="d-flex my-4">
           <h5 class="card-subtitle text-muted">Total:</h5>
           <h5
