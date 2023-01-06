@@ -77,8 +77,12 @@ function ViewModel() {
       self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
     );
 
-    self.accounts[self.loggedIn()].cart = self.cart();
-    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    if (self.loggedIn() !== null) {
+      self.accounts[self.loggedIn()].cart = self.cart();
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    } else {
+      localStorage.setItem("cart", JSON.stringify(self.cart()));
+    }
 
     console.log(self.cart());
   };
@@ -96,8 +100,12 @@ function ViewModel() {
       self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
     );
 
-    self.accounts[self.loggedIn()].cart = self.cart();
-    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    if (self.loggedIn() !== null) {
+      self.accounts[self.loggedIn()].cart = self.cart();
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    } else {
+      localStorage.setItem("cart", JSON.stringify(self.cart()));
+    }
   };
 
   //* Quantity functions
@@ -109,8 +117,12 @@ function ViewModel() {
         self.cart().reduce((acc, item) => acc + item.price * item.quantity(), 0)
       );
 
-      self.accounts[self.loggedIn()].cart = self.cart();
-      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+      if (self.loggedIn() !== null) {
+        self.accounts[self.loggedIn()].cart = self.cart();
+        localStorage.setItem("accounts", JSON.stringify(self.accounts));
+      } else {
+        localStorage.setItem("cart", JSON.stringify(self.cart()));
+      }
     }
     console.log(self.cart()[i].quantity());
   };
@@ -123,8 +135,12 @@ function ViewModel() {
       );
     }
 
-    self.accounts[self.loggedIn()].cart = self.cart();
-    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    if (self.loggedIn() !== null) {
+      self.accounts[self.loggedIn()].cart = self.cart();
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    } else {
+      localStorage.setItem("cart", JSON.stringify(self.cart()));
+    }
   };
   //* End Quantity and Cart functions
 
@@ -132,6 +148,9 @@ function ViewModel() {
   self.loggedIn(JSON.parse(localStorage.getItem("loggedIn")));
   console.log("initial cart", JSON.parse(localStorage.getItem("cart")));
   self.cart(JSON.parse(localStorage.getItem("cart")));
+  self.cart().forEach((item) => {
+    item.quantity = ko.observable(item.quantityPure);
+  });
   if (self.loggedIn() !== null) {
     self.userName(self.accounts[self.loggedIn()].username);
     let cart = self.accounts[self.loggedIn()].cart;

@@ -65,9 +65,8 @@ header {
 footer {
   background-color: hsl(0, 0%, 0%);
   color: #fff;
-  text-align: center;
-  padding: 2rem;
-  height: 30vh;
+  position: relative;
+  padding: 7rem 0;
 }
 
 #navbar {
@@ -109,4 +108,15 @@ input.arrow-hidden[type="number"] {
   font-weight: bold;
   color: white;
   text-shadow: 0 0 10px #000;
+}
+
+.footer-logo {
+  max-width: 14rem;
+}
+
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: hsl(0, 0%, 85%);
 }
