@@ -1,5 +1,7 @@
 function ViewModel() {
   const self = this;
+  const maxQuantity = 15;
+  const minQuantity = 1;
   self.error = ko.observable("");
   self.locations = ko.observableArray([]);
 

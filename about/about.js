@@ -1,5 +1,7 @@
 function ViewModel() {
   const self = this;
+  const maxQuantity = 15;
+  const minQuantity = 1;
   self.accounts = JSON.parse(localStorage.getItem("accounts"));
   self.userName = ko.observable("");
   self.loggedIn = ko.observable(JSON.parse(localStorage.getItem("loggedIn")));
