@@ -21,7 +21,6 @@ $(function () {
 
 $(window).on("beforeunload", function (e) {
   if (performance.navigation.type === 1) {
-    // The page is being reloaded, so don't do anything
     return;
   }
   localStorage.setItem("invoice", null);
