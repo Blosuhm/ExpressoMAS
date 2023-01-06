@@ -126,6 +126,11 @@ function ViewModel() {
     localStorage.setItem("loggedIn", JSON.stringify(null));
     window.location.href = "../index.html";
   };
+  //* If empty cart u aint payin for anything
+  console.log("cart", self.cart(), self.cart() === []);
+  if (!self.cart().length) {
+    window.location.href = "../";
+  }
   //* End Login and Logout
 }
 

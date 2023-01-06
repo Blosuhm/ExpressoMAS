@@ -1,3 +1,7 @@
+if (JSON.parse(localStorage.getItem("loggedIn")) !== null) {
+  window.location.href = "../";
+}
+
 function ViewModel() {
   const self = this;
   self.email = ko.observable();

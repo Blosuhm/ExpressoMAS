@@ -115,6 +115,9 @@ function ViewModel() {
   self.loggedIn(JSON.parse(localStorage.getItem("loggedIn")));
   console.log("initial cart", JSON.parse(localStorage.getItem("cart")));
   self.cart(JSON.parse(localStorage.getItem("cart")));
+  self.cart().forEach((item) => {
+    item.quantity = ko.observable(item.quantityPure);
+  });
   console.log(self.loggedIn());
   if (self.loggedIn() !== null) {
     self.userName(self.accounts[self.loggedIn()].username);
