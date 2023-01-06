@@ -78,45 +78,46 @@
           </div>
 
           <!-- ko if: loggedIn() === null -->
-        <div class="ms-auto me-3">
-          <a href="login/login.html"
-            ><button
+          <div class="ms-auto me-3">
+            <a href="login/login.html"
+              ><button
+                type="button"
+                class="btn rounded-pill my-btn"
+                style="background: rgb(255, 255, 255)"
+              >
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Log in
+              </button></a
+            >
+
+            <a href="signup/signup.html"
+              ><button type="button" class="btn btn-dark rounded-pill my-btn">
+                Sign up
+              </button></a
+            >
+          </div>
+          <!--/ko-->
+
+          <!-- ko ifnot: loggedIn() === null -->
+          <div class="ms-auto me-3 d-flex align-items-center">
+            <span
+              class="text-white fs-1 me-3 bg-black rounded-1"
+              data-bind="text: userName"
+            ></span>
+            <button
               type="button"
               class="btn rounded-pill my-btn"
               style="background: rgb(255, 255, 255)"
+              data-bs-toggle="modal"
+              data-bs-target="#logoutModal"
             >
-              <i class="fa fa-user" aria-hidden="true"></i>
-              Log in
-            </button></a
-          >
-
-          <a href="signup/signup.html"
-            ><button type="button" class="btn btn-dark rounded-pill my-btn">
-              Sign up
-            </button></a
-          >
+              Log out
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </button>
+          </div>
+          <!-- /ko -->
         </div>
-        <!--/ko-->
-
-        <!-- ko ifnot: loggedIn() === null -->
-        <div class="ms-auto me-3 d-flex align-items-center">
-          <span
-            class="text-white fs-1 me-3 bg-black rounded-1"
-            data-bind="text: userName"
-          ></span>
-          <button
-            type="button"
-            class="btn rounded-pill my-btn"
-            style="background: rgb(255, 255, 255)"
-            data-bs-toggle="modal"
-            data-bs-target="#logoutModal"
-          >
-            Log out
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <!-- /ko -->
+      </div>
     </header>
     <div id="logoutModal" class="modal fade">
       <div class="modal-dialog modal-dialog-centered">
@@ -318,7 +319,7 @@
       </div>
     </div>
 
-    <footer class="footer-20192">
+    <footer>
       <div class="site-section">
         <div class="container">
           <div class="row">
