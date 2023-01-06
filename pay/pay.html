@@ -156,10 +156,7 @@
 
               <span data-bind="text: name" style="width: 15ch"></span>
 
-              <div
-                class="d-flex quantity"
-                data-bind="attr: {id: 'c' + $index()}"
-              >
+              <div class="d-flex quantity">
                 <button
                   data-bind="click: function() {$root.subtract($index())}, attr:{disabled: quantity() <= 1}"
                   class="btn rounded-circle btn-secondary border-0 subtract"

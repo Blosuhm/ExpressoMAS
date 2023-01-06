@@ -90,8 +90,13 @@ function ViewModel() {
     console.log("Clearing cart");
     self.cart([]);
     self.totalPrice(0);
-    self.accounts[self.loggedIn()].cart = self.cart();
-    localStorage.setItem("accounts", JSON.stringify(self.accounts));
+
+    if (self.loggedIn() !== null) {
+      self.accounts[self.loggedIn()].cart = self.cart();
+      localStorage.setItem("accounts", JSON.stringify(self.accounts));
+    } else {
+      localStorage.setItem("cart", JSON.stringify(self.cart()));
+    }
   };
   self.removeFromCart = function (item) {
     console.log(`Removing ${item.name} from cart`);
