@@ -65,7 +65,9 @@ header {
 footer {
   background-color: hsl(0, 0%, 0%);
   color: #fff;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  bottom: 0rem;
   padding: 7rem 0;
 }
 

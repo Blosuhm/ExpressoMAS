@@ -6,12 +6,6 @@ function ViewModel() {
   self.error = ko.observable("");
   self.standardShipping = ko.observable(0.5);
   self.type = ko.observable("takeaway");
-  self.isDelivery = function () {
-    return self.type() === "delivery";
-  };
-  self.Log = function () {
-    console.log(self.type());
-  };
 
   self.loggedIn = ko.observable(null);
   self.userName = ko.observable("");

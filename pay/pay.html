@@ -212,13 +212,13 @@
               <h5 class="card-subtitle text-muted">Total:</h5>
               <h5
                 class="card-subtitle text-muted ms-auto fw-bolder"
-                data-bind="text: (totalPrice() + (isDelivery ?  standardShipping() : 0)).toFixed(2) + ' €'"
+                data-bind="text: (totalPrice() + (type()==='delivery' ?  standardShipping() : 0)).toFixed(2) + ' €'"
               ></h5>
             </div>
             <hr />
 
             <select
-              data-bind="click: Log,value: type"
+              data-bind="value: type"
               class="form-select"
               name="orderType"
               id="orderType"
@@ -226,7 +226,7 @@
               <option selected value="delivery">Delivery</option>
               <option value="takeaway">Takeaway</option>
             </select>
-            <div id="deliveryInfo" data-bind="visible: isDelivery">
+            <div id="deliveryInfo" data-bind="visible: type()==='delivery'">
               <hr />
 
               <form>

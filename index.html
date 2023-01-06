@@ -91,7 +91,7 @@
             /></a>
           </div>
           <button
-            class="btn bg-white ms-auto me-5 position-relative"
+            class="btn bg-white border-0 ms-auto me-5 position-relative"
             type="button"
             data-bind="attr: { disabled: cart().length === 0 }"
             data-bs-toggle="offcanvas"
@@ -101,7 +101,7 @@
             <span
               class="position-absolute translate-middle badge rounded-pill bg-danger"
               style="font-size: 0.7rem; top: 0.1rem; right: -1.3rem"
-              data-bind="text: cart().length"
+              data-bind="visible:cart().length !== 0, text: cart().length"
             ></span>
           </button>
           <!-- ko if: loggedIn() === null -->
